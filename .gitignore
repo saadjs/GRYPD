@@ -26,7 +26,7 @@ app/DerivedData/
 # docs site (site/) is source; site/build is the compiled output synced into dist/
 site/node_modules/
 site/build/
-site/.playwright-cli/
+.playwright-cli/
 
 # docs site build output synced into dist/ by `make site`: regenerated from
 # site/src on every build (content-hashed filenames), so it's not tracked here.
