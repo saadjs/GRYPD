@@ -10,6 +10,35 @@
   font-size: clamp(2rem, 4vw + 1.2rem, 2.9rem);
 }
 
+/* Pronunciation gloss under the title (GRYPD = "gripped"). */
+.pronunciation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin: 14px 0 0;
+  font-size: 1.02rem;
+  color: var(--brand);
+}
+
+.pronunciation__word {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.pronunciation__phon {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.pronunciation__def {
+  font-style: italic;
+}
+
+.pronunciation__sep {
+  color: var(--brand-dim);
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;

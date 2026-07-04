@@ -18,8 +18,20 @@ function Home() {
           <h1 className="page-title">
             The strength companion
             <br />
-            Apple Fitness+ doesn't have.
+            for Apple Fitness+.
           </h1>
+          {/* GRYPD = "gripped"; Fitness+ Strength is dumbbells only. */}
+          <p className="pronunciation">
+            <span className="pronunciation__word">gripped</span>
+            <span className="pronunciation__sep" aria-hidden="true">
+              ·
+            </span>
+            <span className="pronunciation__phon">/ɡrɪpt/</span>
+            <span className="pronunciation__sep" aria-hidden="true">
+              ·
+            </span>
+            <span className="pronunciation__def">a dumbbell in each hand</span>
+          </p>
           <p className="page-intro">
             Filter Strength workouts by muscle group, duration, and body focus, then
             log the weight you lifted, per workout and per move, to see progress over

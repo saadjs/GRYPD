@@ -49,6 +49,8 @@ private final class OrientationLockDelegate: NSObject, UIApplicationDelegate {
 
 struct RootTabView: View {
     @Environment(AppRouter.self) private var router
+    // Gates the onboarding cover; set true once the user finishes or skips.
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
     var body: some View {
         @Bindable var router = router
@@ -65,6 +67,12 @@ struct RootTabView: View {
             Tab("Settings", systemImage: "gearshape", value: AppTab.settings) {
                 SettingsView()
             }
+        }
+        .fullScreenCover(isPresented: Binding(
+            get: { !hasCompletedOnboarding },
+            set: { if !$0 { hasCompletedOnboarding = true } }
+        )) {
+            OnboardingView()
         }
     }
 }

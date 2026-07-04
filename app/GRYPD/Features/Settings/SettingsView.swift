@@ -4,6 +4,7 @@ struct SettingsView: View {
     @Environment(CatalogStore.self) private var catalog
     @Environment(\.modelContext) private var context
     @AppStorage("defaultUnit") private var defaultUnitRaw = WeightUnit.lb.rawValue
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage(DumbbellDefaults.keyLight) private var dumbbellLight = DumbbellDefaults.defaultLight
     @AppStorage(DumbbellDefaults.keyMedium) private var dumbbellMedium = DumbbellDefaults.defaultMedium
     @AppStorage(DumbbellDefaults.keyHeavy) private var dumbbellHeavy = DumbbellDefaults.defaultHeavy
@@ -27,6 +28,27 @@ struct SettingsView: View {
                 } footer: {
                     Text("Auto-filled when logging based on the exercise.")
                 }
+                Section {
+                    // Doc links open grypd.saad.sh in the browser.
+                    Link(destination: URL(string: "https://grypd.saad.sh/features.html")!) {
+                        Label("Features", systemImage: "sparkles")
+                    }
+                    Link(destination: URL(string: "https://grypd.saad.sh/support.html")!) {
+                        Label("Support & FAQ", systemImage: "questionmark.circle")
+                    }
+                    Link(destination: URL(string: "https://grypd.saad.sh/privacy.html")!) {
+                        Label("Privacy Policy", systemImage: "hand.raised")
+                    }
+                    Button {
+                        // Re-present the onboarding cover.
+                        hasCompletedOnboarding = false
+                    } label: {
+                        Label("Show Introduction", systemImage: "play.circle")
+                    }
+                } header: {
+                    Text("About & Support")
+                }
+
                 #if DEBUG
                 Section {
                     Button("Seed sample history") {
