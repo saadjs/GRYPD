@@ -1,0 +1,30 @@
+.device {
+  margin: 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.device__frame {
+  position: relative;
+  border-radius: 34px;
+  padding: 5px;
+  background: linear-gradient(160deg, #232323, #0a0a0a);
+  box-shadow:
+    0 0 0 1px var(--hairline),
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 90px -30px var(--brand-wash-strong);
+}
+
+.device__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.device__caption {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  text-align: center;
+}

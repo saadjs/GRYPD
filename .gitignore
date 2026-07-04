@@ -1,0 +1,41 @@
+# secrets — NEVER commit
+*.env
+
+# large working data (regenerated from the .dtable export)
+scratch_dtable/
+*.dtable
+
+# python
+__pycache__/
+*.pyc
+.ruff_cache/
+
+# leftover sample output
+catalog/strength_sample.json
+
+# local Codex debug notes
+.scratch/
+.wrangler/
+
+# Xcode / app build artifacts (project is generated from app/project.yml via xcodegen)
+app/build/
+app/*.xcodeproj/
+app/DerivedData/
+*.xcuserstate
+
+# docs site (site/) is source; site/build is the compiled output synced into dist/
+site/node_modules/
+site/build/
+site/.playwright-cli/
+
+# docs site build output synced into dist/ by `make site`: regenerated from
+# site/src on every build (content-hashed filenames), so it's not tracked here.
+# dist/manifest.json, strength.*.json, taxonomy.*.json, and _headers (the
+# catalog pipeline's output) remain tracked as-is.
+dist/assets/
+dist/screenshots/
+dist/*.html
+dist/icon-*.png
+
+# macOS
+.DS_Store

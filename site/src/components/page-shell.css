@@ -1,0 +1,79 @@
+.shell {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.shell__content {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(48px, 6vw, 64px) clamp(20px, 4vw, 56px) 100px;
+}
+
+.shell__content-inner {
+  max-width: var(--content-max);
+}
+
+.shell__toc {
+  flex: 0 0 var(--toc-w);
+  padding: 64px 24px 0 0;
+}
+
+.shell__menu-btn {
+  display: none;
+}
+
+.shell__scrim {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .shell__toc {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .shell {
+    display: block;
+  }
+
+  .shell__content {
+    padding: 76px 24px 80px;
+  }
+
+  .shell__menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 50;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--hairline-strong);
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .shell__menu-btn span {
+    width: 16px;
+    height: 1.5px;
+    margin: 0 auto;
+    background: var(--text-primary);
+  }
+
+  .shell__scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 39;
+  }
+}

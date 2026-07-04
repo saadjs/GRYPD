@@ -1,0 +1,131 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: var(--sidebar-w);
+  flex: 0 0 var(--sidebar-w);
+  padding: 28px 20px 24px;
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  padding: 0 4px;
+}
+
+.sidebar__mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  flex: none;
+}
+
+.sidebar__tagline {
+  margin: 6px 4px 28px;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.sidebar__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1;
+}
+
+.sidebar__group-title {
+  margin: 0 0 6px 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+.sidebar__link:hover {
+  color: var(--text-primary);
+  background: var(--surface-raised);
+}
+
+.sidebar__link[aria-current='page'] {
+  color: var(--on-brand);
+  background: var(--brand);
+  font-weight: 600;
+}
+
+.sidebar__badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-tertiary);
+}
+
+.sidebar__github {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar__github:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 40;
+    background: var(--bg);
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  /* Only cast the shadow while open — an off-screen (translateX(-100%))
+     drawer would otherwise project its +40px-offset shadow back onto the
+     visible page, showing as a dark band down the left edge. */
+  .sidebar.is-open {
+    transform: translateX(0);
+    box-shadow: 40px 0 60px rgba(0, 0, 0, 0.5);
+  }
+}

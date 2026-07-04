@@ -1,0 +1,68 @@
+name: GRYPD
+options:
+  bundleIdPrefix: sh.saad
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.1.1"
+    CURRENT_PROJECT_VERSION: "3"
+schemes:
+  GRYPD:
+    build:
+      targets:
+        GRYPD: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - GRYPDUnitTests
+    archive:
+      config: Release
+targets:
+  GRYPD:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: GRYPD
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: sh.saad.grypd
+        PRODUCT_NAME: GRYPD
+        PRODUCT_MODULE_NAME: GRYPD
+        INFOPLIST_KEY_CFBundleDisplayName: GRYPD
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: "YES"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        # Automatic signing is declared here (not the Xcode GUI) because
+        # `xcodegen generate` rewrites the project each time. Keep this in sync
+        # with the team used in ~/src/runpace.
+        CODE_SIGN_STYLE: "Automatic"
+        DEVELOPMENT_TEAM: "2ZPA772V9V"
+      configs:
+        Debug:
+          CODE_SIGN_IDENTITY: "Apple Development"
+        Release:
+          CODE_SIGN_IDENTITY: "Apple Development"
+  GRYPDUnitTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: GRYPDUnitTests
+    dependencies:
+      - target: GRYPD
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: sh.saad.grypd.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/GRYPD.app/GRYPD"

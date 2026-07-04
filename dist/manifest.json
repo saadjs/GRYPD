@@ -1,0 +1,20 @@
+{
+ "schemaVersion": 1,
+ "generatedAt": "2026-07-03T20:17:28Z",
+ "catalogVersion": "2026.26",
+ "taxonomy": {
+  "file": "taxonomy.afd853b7ed.json",
+  "sha256_10": "afd853b7ed",
+  "bytes": 4813
+ },
+ "disciplines": [
+  {
+   "slug": "strength",
+   "label": "Strength",
+   "file": "strength.61a3c6755f.json",
+   "sha256_10": "61a3c6755f",
+   "count": 886,
+   "bytes": 582188
+  }
+ ]
+}
