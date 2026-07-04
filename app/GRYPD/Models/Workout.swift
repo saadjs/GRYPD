@@ -166,10 +166,15 @@ extension Array where Element == Workout {
             guard let month = w.releaseMonthStart else { return nil }
             return (month, w)
         }, by: { $0.0 })
+        // The bucket boundary (`month`) is a UTC month-start, so the label must
+        // be formatted in UTC too. Formatting in the device's local timezone
+        // would render e.g. 2026-06-01T00:00Z as "MAY 2026" anywhere behind UTC.
+        var monthStyle = Date.FormatStyle.dateTime.month(.wide).year()
+        monthStyle.timeZone = TimeZone(identifier: "UTC") ?? .gmt
         return grouped.map { (month, pairs) in
             WorkoutMonth(
                 id: month,
-                label: month.formatted(.dateTime.month(.wide).year()).uppercased(),
+                label: month.formatted(monthStyle).uppercased(),
                 workouts: pairs.map { $0.1 }.sorted(by: Workout.newestFirst))
         }.sorted { $0.id > $1.id }
     }
