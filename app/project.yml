@@ -8,7 +8,7 @@ settings:
   base:
     SWIFT_VERSION: "5.0"
     MARKETING_VERSION: "1.2"
-    CURRENT_PROJECT_VERSION: "5"
+    CURRENT_PROJECT_VERSION: "6"
 schemes:
   GRYPD:
     build:
@@ -36,6 +36,8 @@ targets:
         PRODUCT_MODULE_NAME: GRYPD
         INFOPLIST_KEY_CFBundleDisplayName: GRYPD
         GENERATE_INFOPLIST_FILE: "YES"
+        # No non-exempt encryption: skips App Store Connect export-compliance prompt.
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: "NO"
         INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: "YES"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
