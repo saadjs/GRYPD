@@ -81,8 +81,10 @@ def firewall(cat):
             errs.append(f"{w}: bad bodyFocus")
         if not r["facets"].get("muscleGroups"):
             errs.append(f"{w}: no muscleGroups")
-        if not r.get("moves"):
-            errs.append(f"{w}: no moves")
+        # moves may legitimately be empty: a freshly-added weekly workout is
+        # published for its title/facets/link before its exercise list is
+        # filled in (users can add moves manually in-app). The `moves` key is
+        # still always emitted as a list, so the app decodes it fine.
     return errs
 
 

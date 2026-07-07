@@ -13,6 +13,10 @@ APP_RESOURCES_DIR = os.environ.get(
 )
 CONTENT = os.path.join(SCRATCH_DIR, "content.json")
 CATALOG = os.path.join(ROOT, "catalog", "strength.json")
+# Negative cache: Apple workout IDs whose links are confirmed delisted (404).
+# enrich.py skips these so each run only hits the network for links it has
+# never seen — the mirror of the positive resume via CATALOG. Committed state.
+DELISTED = os.path.join(ROOT, "catalog", "delisted.json")
 
 VALID_FOCUS = {"upper-body", "lower-body", "total-body"}
 VALID_DURATIONS = {10, 11, 20, 21, 30, 31}
@@ -138,7 +142,10 @@ def row_is_publishable_fallback(r, nk, opts):
     for field in required_scalar_fields:
         if not resolve(r.get(nk[field]), opts.get(field, {})):
             return False
-    required_list_fields = ["Muscle Groups", "Types of Moves"]
+    # "Types of Moves" is intentionally NOT required: a new weekly workout is
+    # publishable from its trainer/duration/focus/muscle-group facets alone, so
+    # it appears in the catalog before its exercise list is entered.
+    required_list_fields = ["Muscle Groups"]
     for field in required_list_fields:
         if not resolve(r.get(nk[field]), opts.get(field, {})):
             return False

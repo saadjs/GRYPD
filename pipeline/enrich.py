@@ -12,6 +12,7 @@ import urllib.request
 
 from common import (
     CATALOG,
+    DELISTED,
     apple_workout_record,
     display_path,
     load_json,
@@ -20,6 +21,10 @@ from common import (
 )
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15"
+
+
+def _today():
+    return time.strftime("%Y-%m-%d")
 
 
 def fetch_apple(slug, wid):
@@ -74,8 +79,17 @@ def main(limit):
     except OSError:
         out = []
     have = {r["id"] for r in out}
+    # negative cache: links confirmed delisted (404) on a prior run. Skipping
+    # these keeps a normal week's run to ~0 network calls instead of re-hitting
+    # the entire historical backlog of dead Apple links every time. Transient
+    # errors are deliberately NOT cached here — a brand-new workout that merely
+    # got rate-limited must still be retried on the next run, not lost forever.
+    try:
+        skip = load_json(DELISTED)
+    except OSError:
+        skip = {}
     done = 0
-    delisted = errors = 0
+    delisted = errors = skipped = 0
     for r in t["rows"]:
         link = r.get(nk["Link"])
         if not link:
@@ -86,9 +100,13 @@ def main(limit):
         slug, wid = m.group(1), m.group(2)
         if wid in have:
             continue
+        if wid in skip:
+            skipped += 1
+            continue
         ap, status = fetch_apple(slug, wid)
         if status == "404":
             delisted += 1
+            skip[wid] = {"slug": slug, "recordedAt": _today()}
             print(f"  DELISTED {wid} {slug}", file=sys.stderr)
             continue
         if not ap:
@@ -107,9 +125,10 @@ def main(limit):
             break
     out.sort(key=lambda r: (r["trainer"], int(r["id"])))
     write_json(CATALOG, out, indent=1)
+    write_json(DELISTED, dict(sorted(skip.items())), indent=1)
     print(
         f"\nNEW {done}  |  TOTAL {len(out)}  |  DELISTED(404) {delisted}  |  "
-        f"RETRY-LATER {errors}  ->  {display_path(CATALOG)}"
+        f"RETRY-LATER {errors}  |  SKIPPED(cached-404) {skipped}  ->  {display_path(CATALOG)}"
     )
 
 

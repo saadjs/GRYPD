@@ -6880,6 +6880,31 @@
   "releaseDate": "2026-03-30"
  },
  {
+  "id": "6778547055",
+  "discipline": "strength",
+  "title": "Strength with Gregg",
+  "trainer": "gregg",
+  "durationMinutes": 31,
+  "episode": 191,
+  "appleUrl": "https://fitness.apple.com/us/workout/strength-with-gregg/6778547055",
+  "description": "In this lower-body workout, there are three blocks of two moves, done three times. Some of the exercises are wide squats, reverse lunges, side lunges, and hinges. Includes the use of two heavy dumbbells.",
+  "releaseDate": "2026-07-06",
+  "facets": {
+   "bodyFocus": "lower-body",
+   "muscleGroups": [
+    "thighs",
+    "glutes"
+   ],
+   "equipment": [
+    "dumbbells"
+   ],
+   "dumbbells": [
+    "2-heavy"
+   ]
+  },
+  "moves": []
+ },
+ {
   "id": "1654289447",
   "discipline": "strength",
   "title": "Strength with Jenn",
@@ -8731,6 +8756,34 @@
    "crunch"
   ],
   "releaseDate": "2026-05-25"
+ },
+ {
+  "id": "6778546996",
+  "discipline": "strength",
+  "title": "Strength with Jenn",
+  "trainer": "jenn",
+  "durationMinutes": 21,
+  "episode": 129,
+  "appleUrl": "https://fitness.apple.com/us/workout/strength-with-jenn/6778546996",
+  "description": "This upper-body workout has two blocks of three moves, done three times. The moves are overhead presses, bent-over rows, wide rows, front raises, and two types of planks. Includes the use of two medium and two heavy dumbbells.",
+  "releaseDate": "2026-07-06",
+  "facets": {
+   "bodyFocus": "upper-body",
+   "muscleGroups": [
+    "back",
+    "shoulders",
+    "core"
+   ],
+   "equipment": [
+    "dumbbells",
+    "mat"
+   ],
+   "dumbbells": [
+    "2-medium",
+    "2-heavy"
+   ]
+  },
+  "moves": []
  },
  {
   "id": "1616291602",
@@ -11007,6 +11060,35 @@
    "chop"
   ],
   "releaseDate": "2026-05-04"
+ },
+ {
+  "id": "6778546909",
+  "discipline": "strength",
+  "title": "Strength with Kim",
+  "trainer": "kim",
+  "durationMinutes": 11,
+  "episode": 119,
+  "appleUrl": "https://fitness.apple.com/us/workout/strength-with-kim/6778546909",
+  "description": "This total-body workout has two rounds of three moves. In each round, the moves build to a three-part combination exercise. The exercises are squats, overhead presses, lunges, hinges, rows, and biceps curls. Includes the use of two medium and two heavy dumbbells.",
+  "releaseDate": "2026-07-06",
+  "facets": {
+   "bodyFocus": "total-body",
+   "muscleGroups": [
+    "thighs",
+    "glutes",
+    "biceps",
+    "back",
+    "shoulders"
+   ],
+   "equipment": [
+    "dumbbells"
+   ],
+   "dumbbells": [
+    "2-medium",
+    "2-heavy"
+   ]
+  },
+  "moves": []
  },
  {
   "id": "1533901105",
