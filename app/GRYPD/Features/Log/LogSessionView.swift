@@ -247,6 +247,7 @@ struct LogSessionView: View {
                             .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                     }
                     .onDelete(perform: deleteExercises)
+                    .onMove(perform: moveExercises)
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
@@ -310,6 +311,12 @@ struct LogSessionView: View {
                 Text(setCountLabel(entry.wrappedValue.sets.count))
                     .scaledFont(13, weight: .bold, relativeTo: .caption)
                     .foregroundStyle(Color.brand)
+                // Decorative hint that the row is a drag source; the whole row
+                // reorders via the List's native long-press drag.
+                Image(systemName: "line.3.horizontal")
+                    .scaledFont(13, weight: .semibold, relativeTo: .caption)
+                    .foregroundStyle(.white.opacity(0.3))
+                    .accessibilityHidden(true)
             }
 
             ForEach(entry.sets.indices, id: \.self) { index in
@@ -545,7 +552,7 @@ struct LogSessionView: View {
 
     private func draftEntries() -> [LogExerciseDraft] {
         LogExerciseDrafts.make(workoutMoves: workout?.displayMoves ?? [],
-                               existing: editingLog?.moveEntries ?? [],
+                               existing: editingLog?.orderedMoveEntries ?? [],
                                defaultUnit: defaultUnit,
                                dumbbellDefaults: dumbbellDefaults,
                                moveLabel: catalog.taxonomy.move)
@@ -564,6 +571,12 @@ struct LogSessionView: View {
 
     private func deleteExercises(at offsets: IndexSet) {
         entries.remove(atOffsets: offsets)
+    }
+
+    /// Reorder via the List's native long-press drag. `entries` is the save
+    /// source of truth, so its new order is persisted as each move's `order`.
+    private func moveExercises(from offsets: IndexSet, to destination: Int) {
+        entries.move(fromOffsets: offsets, toOffset: destination)
     }
 
     private func addSet(to entry: Binding<LogExerciseDraft>) {
@@ -597,8 +610,9 @@ struct LogSessionView: View {
         // correct whether we're creating fresh or editing an existing session.
         for old in log.moveEntries { context.delete(old) }
         log.moveEntries.removeAll()
-        for e in entries where e.shouldPersist {
+        for (order, e) in entries.enumerated() where e.shouldPersist {
             let m = MoveEntry(moveSlug: e.moveSlug, label: e.trimmedLabel)
+            m.order = order
             m.log = log
             log.moveEntries.append(m)
             context.insert(m)

@@ -55,41 +55,39 @@ struct LogExerciseDraft: Identifiable, Equatable {
 }
 
 enum LogExerciseDrafts {
-    /// Rows to show: the matched workout's moves, pre-filled from existing log
-    /// entries, plus logged entries the workout no longer lists and custom rows.
+    /// Rows to show: the session's already-logged entries first, in the exact
+    /// order they were saved (the user's drag-reordered order), followed by any
+    /// catalog moves not yet logged, in catalog order.
     ///
-    /// A fresh workout move with no logged weight is auto-filled from the user's
-    /// configured `dumbbellDefaults` (by the move's `DumbbellTier`); already-logged
-    /// weights are always preserved, so editing a session never clobbers real data.
+    /// Pass `existing` already ordered — callers use `WorkoutLog.orderedMoveEntries`
+    /// so a re-edit reproduces the user's chosen exercise order verbatim. For a
+    /// brand-new session `existing` is empty, so the result is plain catalog order.
+    ///
+    /// A not-yet-logged catalog move is auto-filled from the user's configured
+    /// `dumbbellDefaults` (by the move's `DumbbellTier`); already-logged weights
+    /// are always preserved, so editing a session never clobbers real data.
     static func make(workoutMoves: [String],
                      existing: [MoveEntry],
                      defaultUnit: WeightUnit,
                      dumbbellDefaults: DumbbellDefaults? = nil,
                      moveLabel: (String) -> String) -> [LogExerciseDraft] {
-        var bySlug: [String: MoveEntry] = [:]
-        for entry in existing {
-            if let slug = entry.moveSlug {
-                bySlug[slug] = entry
-            }
-        }
-
         var drafts: [LogExerciseDraft] = []
-        var covered = Set<String>()
-        for slug in workoutMoves {
-            covered.insert(slug)
-            let logged = bySlug[slug]
-            let sets = logged.map { setDrafts(for: $0, defaultUnit: defaultUnit) } ?? [
-                SetDraft(weight: dumbbellDefaults?.weight(forMoveSlug: slug), reps: nil, seconds: nil)
-            ]
-            drafts.append(LogExerciseDraft(moveSlug: slug,
-                                           label: logged?.label ?? moveLabel(slug),
-                                           sets: sets))
-        }
+        var loggedSlugs = Set<String>()
 
-        for entry in existing where !(entry.moveSlug.map(covered.contains) ?? false) {
+        // The user's saved order wins: emit existing entries exactly as passed.
+        for entry in existing {
+            if let slug = entry.moveSlug { loggedSlugs.insert(slug) }
             drafts.append(LogExerciseDraft(moveSlug: entry.moveSlug,
                                            label: entry.label,
                                            sets: setDrafts(for: entry, defaultUnit: defaultUnit)))
+        }
+
+        // Append catalog moves the user hasn't logged yet, in catalog order.
+        for slug in workoutMoves where !loggedSlugs.contains(slug) {
+            drafts.append(LogExerciseDraft(moveSlug: slug,
+                                           label: moveLabel(slug),
+                                           sets: [SetDraft(weight: dumbbellDefaults?.weight(forMoveSlug: slug),
+                                                           reps: nil, seconds: nil)]))
         }
         return drafts
     }

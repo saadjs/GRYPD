@@ -22,13 +22,29 @@ final class LogExerciseDraftTests: XCTestCase {
             slug == "deadlift" ? "Deadlift" : "Catalog \(slug)"
         }
 
-        XCTAssertEqual(drafts.map(\.label), ["Goblet Squat", "Deadlift", "Suitcase Carry"])
-        XCTAssertEqual(drafts.map(\.moveSlug), ["squat", "deadlift", nil])
+        // Existing entries keep their saved order (squat, then the custom move);
+        // the unlogged catalog move (deadlift) is appended at the end.
+        XCTAssertEqual(drafts.map(\.label), ["Goblet Squat", "Suitcase Carry", "Deadlift"])
+        XCTAssertEqual(drafts.map(\.moveSlug), ["squat", nil, "deadlift"])
         XCTAssertEqual(drafts[0].sets.map(\.weight), [35, 40])
         XCTAssertEqual(drafts[0].sets.map(\.reps), [10, 8])
         XCTAssertEqual(drafts[0].sets.map(\.seconds), [40, 35])
-        XCTAssertEqual(drafts[1].sets.map(\.weight), [nil])
-        XCTAssertEqual(drafts[2].sets.first?.weight ?? 0, 97.0033953592, accuracy: 0.000001)
+        XCTAssertEqual(drafts[1].sets.first?.weight ?? 0, 97.0033953592, accuracy: 0.000001)
+        XCTAssertEqual(drafts[2].sets.map(\.weight), [nil])
+    }
+
+    func testSavedExerciseOrderWinsOverCatalogOrder() {
+        // User dragged the catalog order [a, b, c] into [c, a]; b was left empty
+        // (unlogged). Re-editing must show c, a first — the saved order — then
+        // append the unlogged catalog move b at the end.
+        let c = MoveEntry(moveSlug: "c", label: "C", weightValue: 30, weightUnit: .lb)
+        let a = MoveEntry(moveSlug: "a", label: "A", weightValue: 20, weightUnit: .lb)
+
+        let drafts = LogExerciseDrafts.make(workoutMoves: ["a", "b", "c"],
+                                            existing: [c, a],
+                                            defaultUnit: .lb) { $0.uppercased() }
+
+        XCTAssertEqual(drafts.map(\.moveSlug), ["c", "a", "b"])
     }
 
     func testFreshMovesAutoFillFromDumbbellDefaultsButLoggedWeightsWin() {

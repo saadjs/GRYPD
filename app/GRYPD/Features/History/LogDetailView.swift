@@ -176,7 +176,7 @@ struct LogDetailView: View {
             } else {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: tileMinWidth), spacing: 12)],
                           alignment: .leading, spacing: 12) {
-                    ForEach(log.moveEntries) { entry in
+                    ForEach(log.orderedMoveEntries) { entry in
                         if let topSet = entry.topSet {
                             WeightCard(label: entry.label,
                                        set: topSet,

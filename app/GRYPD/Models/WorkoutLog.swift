@@ -41,6 +41,17 @@ final class WorkoutLog {
 
     /// A session is *matched* once it's tied to a catalog workout.
     var isMatched: Bool { !workoutId.isEmpty }
+
+    /// Move entries in the user's chosen exercise order: sort by `order`, with a
+    /// `label` tiebreak so logs saved before `order` existed (all zero) render in
+    /// a stable sequence instead of reshuffling on every launch. (`persistentModelID`
+    /// hashes through Swift's per-process-seeded hasher, so it can't be a tiebreak.)
+    var orderedMoveEntries: [MoveEntry] {
+        moveEntries.sorted { lhs, rhs in
+            if lhs.order == rhs.order { return lhs.label < rhs.label }
+            return lhs.order < rhs.order
+        }
+    }
 }
 
 /// One completed set for a logged move. Strength sessions are filled in after
@@ -77,6 +88,9 @@ final class SetEntry {
 final class MoveEntry {
     var moveSlug: String?
     var label: String = ""
+    /// Position within its session, low to high. Set from the drag-reordered
+    /// draft order on save; defaults to 0 for logs saved before reordering.
+    var order: Int = 0
     @Relationship(deleteRule: .cascade, inverse: \SetEntry.moveEntry)
     var sets: [SetEntry] = []
     var log: WorkoutLog?
