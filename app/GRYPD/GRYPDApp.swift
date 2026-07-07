@@ -19,7 +19,7 @@ struct GRYPDApp: App {
                     await catalog.refresh()
                 }
         }
-        .modelContainer(for: [WorkoutLog.self, MoveEntry.self, SetEntry.self])
+        .modelContainer(for: [WorkoutLog.self, MoveEntry.self, SetEntry.self, CustomMove.self])
     }
 }
 
@@ -49,6 +49,8 @@ private final class OrientationLockDelegate: NSObject, UIApplicationDelegate {
 
 struct RootTabView: View {
     @Environment(AppRouter.self) private var router
+    @Environment(CatalogStore.self) private var catalog
+    @Environment(\.modelContext) private var context
     // Gates the onboarding cover; set true once the user finishes or skips.
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
@@ -73,6 +75,13 @@ struct RootTabView: View {
             set: { if !$0 { hasCompletedOnboarding = true } }
         )) {
             OnboardingView()
+        }
+        // Prune custom moves the catalog has absorbed. Runs on launch (bundled
+        // taxonomy is loaded synchronously) and again whenever a remote refresh
+        // bumps the catalog version.
+        .onChange(of: catalog.catalogVersion, initial: true) {
+            CustomMoveStore.reconcile(context: context,
+                                      catalogSlugs: Set(catalog.taxonomy.moves.keys))
         }
     }
 }
