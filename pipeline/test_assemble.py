@@ -8,6 +8,7 @@ from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
 import assemble
+import common
 
 KN = {
     "trainer": "Trainer",
@@ -113,6 +114,57 @@ class BuildCompleteCatalogTests(unittest.TestCase):
 
         self.assertEqual(fallback_count, 0)
         self.assertEqual(complete, [])
+
+
+class DumbbellLoadTests(unittest.TestCase):
+    def load(self, slugs, workout_id="x"):
+        # Silence the "empty" warning print during expected-empty cases.
+        with patch("builtins.print"):
+            return common.dumbbell_load(slugs, workout_id=workout_id)
+
+    def test_plain_tiers(self):
+        self.assertEqual(self.load(["2-heavy"]), ["heavy"])
+        self.assertEqual(self.load(["1-medium"]), ["medium"])
+        self.assertEqual(self.load(["2-light"]), ["light"])
+        self.assertEqual(self.load(["bodyweight"]), ["bodyweight"])
+
+    def test_quantity_prefix_is_ignored(self):
+        self.assertEqual(self.load(["1-heavy"]), self.load(["2-heavy"]))
+
+    def test_compounds_fold_to_the_heavier_bucket(self):
+        self.assertEqual(self.load(["2-medium-heavy"]), ["heavy"])
+        self.assertEqual(self.load(["1-medium-heavy"]), ["heavy"])
+        self.assertEqual(self.load(["2-light-medium"]), ["medium"])
+
+    def test_named_slugs(self):
+        self.assertEqual(self.load(["1-challenging"]), ["medium"])
+        self.assertEqual(self.load(["2-you-can-curl-and-press"]), ["medium"])
+        self.assertEqual(self.load(["2-you-can-lift-to-the-side"]), ["medium"])
+
+    def test_multiple_slugs_union_in_canonical_order(self):
+        self.assertEqual(self.load(["2-heavy", "2-light"]), ["light", "heavy"])
+
+    def test_option_b_guard_drops_bodyweight_when_weights_present(self):
+        self.assertEqual(self.load(["2-heavy", "bodyweight"]), ["heavy"])
+
+    def test_unknown_slug_resolves_empty_and_warns(self):
+        with patch("builtins.print") as printed:
+            self.assertEqual(common.dumbbell_load(["mystery"], workout_id="w1"), [])
+        printed.assert_called_once()
+        self.assertIn("w1", printed.call_args[0][0])
+
+    def test_bare_optional_without_override_warns_empty(self):
+        self.assertEqual(self.load(["optional"], workout_id="unmapped"), [])
+
+    def test_future_super_heavy_parses_via_substring(self):
+        self.assertEqual(self.load(["2-super-heavy"]), ["heavy"])
+
+    def test_optional_id_overrides(self):
+        self.assertEqual(self.load(["optional"], "1577854883"), ["heavy"])
+        self.assertEqual(self.load(["optional"], "1536717998"), ["heavy"])
+        self.assertEqual(self.load(["optional"], "1554611034"), ["medium", "heavy"])
+        self.assertEqual(self.load(["optional"], "1569935664"), ["light", "medium"])
+        self.assertEqual(self.load(["optional"], "1591386110"), ["heavy"])
 
 
 if __name__ == "__main__":

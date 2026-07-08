@@ -24,6 +24,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [],
@@ -55,6 +59,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [],
@@ -83,6 +91,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [],
@@ -111,6 +122,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -144,6 +158,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -183,6 +201,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -220,6 +242,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -257,6 +283,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -291,6 +320,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -322,6 +355,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -352,6 +388,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -387,6 +426,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -426,6 +469,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -459,6 +505,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -494,6 +543,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -530,6 +583,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -565,6 +622,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -598,6 +658,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -629,6 +692,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -664,6 +730,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -699,6 +768,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -744,6 +816,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -780,6 +856,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -814,6 +893,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -848,6 +930,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -883,6 +968,10 @@
    "dumbbells": [
     "2-medium",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -915,6 +1004,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -947,6 +1039,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -983,6 +1078,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1024,6 +1123,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -1057,6 +1159,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1095,6 +1200,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1128,6 +1237,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1168,6 +1280,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1209,6 +1325,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1239,6 +1358,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1270,6 +1392,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -1305,6 +1430,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1343,6 +1472,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1384,6 +1517,9 @@
    "dumbbells": [
     "2-heavy",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1423,6 +1559,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1456,6 +1596,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1490,6 +1633,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1522,6 +1668,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1564,6 +1713,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1603,6 +1756,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -1644,6 +1800,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1678,6 +1838,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1707,6 +1870,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1740,6 +1906,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -1770,6 +1939,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1805,6 +1977,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1836,6 +2011,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1873,6 +2051,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -1910,6 +2091,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -1946,6 +2131,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -1979,6 +2167,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -2017,6 +2209,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -2056,6 +2252,9 @@
    "dumbbells": [
     "1-heavy",
     "optional"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2089,6 +2288,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -2119,6 +2321,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -2151,6 +2356,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -2186,6 +2394,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2221,6 +2432,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2253,6 +2467,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -2294,6 +2511,10 @@
    "dumbbells": [
     "1-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -2328,6 +2549,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2362,6 +2586,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2393,6 +2620,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2428,6 +2658,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -2463,6 +2697,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -2495,6 +2732,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2530,6 +2770,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -2565,6 +2809,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2598,6 +2845,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2636,6 +2886,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -2671,6 +2925,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -2704,6 +2961,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2745,6 +3005,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -2787,6 +3051,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2824,6 +3091,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -2865,6 +3135,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -2905,6 +3178,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -2941,6 +3217,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -2977,6 +3257,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -3015,6 +3298,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -3052,6 +3339,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3086,6 +3376,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3127,6 +3420,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -3168,6 +3465,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -3206,6 +3507,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -3242,6 +3547,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -3274,6 +3582,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -3310,6 +3622,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -3345,6 +3660,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -3383,6 +3701,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -3416,6 +3738,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -3452,6 +3777,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -3487,6 +3816,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3519,6 +3851,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -3553,6 +3888,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3592,6 +3930,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3633,6 +3974,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -3673,6 +4018,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -3709,6 +4058,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -3739,6 +4091,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -3777,6 +4132,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -3810,6 +4169,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -3846,6 +4208,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -3879,6 +4245,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3913,6 +4282,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -3947,6 +4319,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -3980,6 +4355,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4015,6 +4394,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4053,6 +4435,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4093,6 +4479,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4131,6 +4520,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4163,6 +4555,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4202,6 +4598,10 @@
    "dumbbells": [
     "2-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -4237,6 +4637,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -4265,6 +4668,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -4304,6 +4710,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -4339,6 +4749,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4373,6 +4786,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -4411,6 +4827,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4441,6 +4860,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -4476,6 +4898,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4519,6 +4944,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4551,6 +4980,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -4578,6 +5010,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -4618,6 +5053,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4655,6 +5094,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -4691,6 +5133,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -4735,6 +5180,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4767,6 +5216,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4800,6 +5252,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4835,6 +5291,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -4867,6 +5326,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -4903,6 +5365,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -4938,6 +5403,10 @@
    "dumbbells": [
     "1-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -4975,6 +5444,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5006,6 +5479,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5038,6 +5514,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5074,6 +5553,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5115,6 +5598,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -5153,6 +5640,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5184,6 +5674,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5220,6 +5714,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5256,6 +5753,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5288,6 +5788,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -5322,6 +5825,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -5360,6 +5866,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5397,6 +5907,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -5433,6 +5946,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5470,6 +5987,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -5505,6 +6025,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5543,6 +6066,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5580,6 +6107,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -5615,6 +6145,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5653,6 +6186,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -5692,6 +6228,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5728,6 +6267,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5769,6 +6312,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5803,6 +6350,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5836,6 +6386,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -5871,6 +6424,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5907,6 +6464,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -5943,6 +6504,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -5978,6 +6542,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6012,6 +6580,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6044,6 +6615,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6079,6 +6654,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6110,6 +6688,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6146,6 +6727,10 @@
    "dumbbells": [
     "1-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6184,6 +6769,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6217,6 +6805,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6251,6 +6842,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6284,6 +6878,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6319,6 +6916,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6357,6 +6957,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6399,6 +7003,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6435,6 +7042,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6473,6 +7084,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6510,6 +7124,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -6545,6 +7163,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6580,6 +7202,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6611,6 +7236,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6643,6 +7271,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6676,6 +7307,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6708,6 +7342,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6742,6 +7380,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -6780,6 +7422,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6812,6 +7457,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -6843,6 +7491,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6879,6 +7530,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -6918,6 +7573,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6956,6 +7614,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -6987,6 +7648,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7019,6 +7683,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7057,6 +7724,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -7091,6 +7762,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7127,6 +7801,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -7167,6 +7845,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7200,6 +7881,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7234,6 +7918,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7261,6 +7948,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -7294,6 +7984,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7332,6 +8025,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7366,6 +8062,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7401,6 +8100,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7432,6 +8134,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7468,6 +8173,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -7501,6 +8210,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -7531,6 +8244,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -7567,6 +8284,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -7598,6 +8319,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7630,6 +8354,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7669,6 +8396,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7706,6 +8436,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -7743,6 +8477,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -7779,6 +8517,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7815,6 +8556,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7845,6 +8589,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -7883,6 +8630,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -7920,6 +8671,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -7958,6 +8712,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -7992,6 +8750,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8024,6 +8785,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8060,6 +8824,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8094,6 +8861,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8132,6 +8902,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8170,6 +8943,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8212,6 +8988,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -8250,6 +9030,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -8291,6 +9074,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -8332,6 +9119,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -8367,6 +9158,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8396,6 +9190,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -8434,6 +9231,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8470,6 +9270,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8510,6 +9313,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -8555,6 +9362,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8589,6 +9399,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8624,6 +9437,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8662,6 +9478,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8703,6 +9522,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -8742,6 +9565,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -8787,6 +9614,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8824,6 +9654,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8861,6 +9694,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8895,6 +9731,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8932,6 +9771,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -8965,6 +9807,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -8997,6 +9842,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9033,6 +9881,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -9073,6 +9924,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -9113,6 +9968,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9151,6 +10009,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -9182,6 +10043,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -9217,6 +10081,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -9250,6 +10117,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -9288,6 +10159,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -9325,6 +10199,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -9369,6 +10247,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -9405,6 +10287,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9444,6 +10329,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -9481,6 +10369,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -9522,6 +10414,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -9559,6 +10455,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9597,6 +10496,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9637,6 +10539,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -9678,6 +10584,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -9710,6 +10619,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9748,6 +10660,10 @@
    "dumbbells": [
     "2-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -9788,6 +10704,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -9829,6 +10749,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9863,6 +10786,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -9900,6 +10826,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -9941,6 +10870,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -9977,6 +10910,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -10016,6 +10952,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10059,6 +10999,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10101,6 +11045,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10146,6 +11094,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -10176,6 +11127,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10214,6 +11168,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10252,6 +11209,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10289,6 +11249,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10333,6 +11296,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10367,6 +11334,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -10407,6 +11377,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10446,6 +11420,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -10482,6 +11459,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10523,6 +11503,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10566,6 +11549,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10604,6 +11591,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10645,6 +11635,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10680,6 +11673,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10725,6 +11721,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -10767,6 +11767,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10795,6 +11798,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -10830,6 +11836,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -10869,6 +11879,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10905,6 +11918,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -10946,6 +11962,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -10984,6 +12003,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11017,6 +12039,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11051,6 +12076,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -11089,6 +12118,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11121,6 +12153,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11161,6 +12196,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -11202,6 +12241,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11240,6 +12282,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11275,6 +12320,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11313,6 +12361,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -11354,6 +12406,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -11389,6 +12445,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11421,6 +12480,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11457,6 +12519,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11492,6 +12557,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -11531,6 +12599,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11567,6 +12638,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11602,6 +12676,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11631,6 +12708,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11665,6 +12745,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -11701,6 +12785,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11733,6 +12820,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11764,6 +12854,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11797,6 +12890,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -11832,6 +12928,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11864,6 +12963,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -11903,6 +13005,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -11947,6 +13053,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -11980,6 +13090,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12017,6 +13130,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -12055,6 +13171,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -12094,6 +13214,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -12125,6 +13248,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -12167,6 +13293,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -12213,6 +13343,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -12260,6 +13394,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -12297,6 +13435,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -12329,6 +13470,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12366,6 +13510,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12403,6 +13550,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -12448,6 +13599,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -12487,6 +13641,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -12524,6 +13681,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -12556,6 +13717,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12595,6 +13759,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -12632,6 +13799,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12675,6 +13845,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -12717,6 +13891,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12753,6 +13930,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -12781,6 +13961,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12814,6 +13997,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12853,6 +14039,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12893,6 +14082,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12933,6 +14125,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -12970,6 +14165,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -13007,6 +14205,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13040,6 +14241,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13076,6 +14280,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -13118,6 +14326,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -13152,6 +14364,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13185,6 +14400,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -13218,6 +14437,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13250,6 +14472,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -13285,6 +14510,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -13323,6 +14552,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13360,6 +14592,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13398,6 +14633,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -13440,6 +14679,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -13482,6 +14725,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13521,6 +14767,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -13557,6 +14806,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13593,6 +14845,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -13630,6 +14885,10 @@
    "dumbbells": [
     "2-medium",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -13661,6 +14920,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13693,6 +14955,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -13732,6 +14997,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -13773,6 +15042,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13812,6 +15084,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -13850,6 +15126,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13884,6 +15163,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -13914,6 +15196,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -13949,6 +15234,10 @@
    "dumbbells": [
     "2-medium",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -13985,6 +15274,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14020,6 +15312,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14060,6 +15355,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -14097,6 +15396,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14135,6 +15437,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -14171,6 +15477,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14205,6 +15514,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14235,6 +15547,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14270,6 +15585,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -14308,6 +15627,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14345,6 +15667,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14383,6 +15708,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -14420,6 +15749,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -14461,6 +15794,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14494,6 +15830,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14534,6 +15873,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14568,6 +15910,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -14606,6 +15951,10 @@
    "dumbbells": [
     "2-medium",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -14653,6 +16002,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -14696,6 +16049,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14733,6 +16089,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14767,6 +16126,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14802,6 +16164,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14837,6 +16202,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14866,6 +16234,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -14902,6 +16273,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -14939,6 +16314,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -14973,6 +16351,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15009,6 +16390,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -15045,6 +16430,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15084,6 +16472,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15122,6 +16513,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15152,6 +16546,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15185,6 +16582,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15223,6 +16623,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15259,6 +16662,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15295,6 +16701,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -15337,6 +16747,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15372,6 +16785,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15405,6 +16821,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15442,6 +16861,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15478,6 +16900,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -15511,6 +16937,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15551,6 +16980,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -15593,6 +17026,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -15631,6 +17068,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -15665,6 +17106,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -15704,6 +17148,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15742,6 +17189,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15779,6 +17229,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -15811,6 +17264,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15848,6 +17304,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15889,6 +17348,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -15921,6 +17384,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15955,6 +17421,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -15991,6 +17460,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16026,6 +17498,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -16066,6 +17541,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16099,6 +17577,10 @@
    "dumbbells": [
     "1-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -16134,6 +17616,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -16172,6 +17657,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -16211,6 +17700,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16239,6 +17731,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -16270,6 +17765,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16306,6 +17804,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -16340,6 +17842,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16376,6 +17881,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16415,6 +17923,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16454,6 +17965,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -16489,6 +18003,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16523,6 +18040,10 @@
    "dumbbells": [
     "2-medium",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -16560,6 +18081,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16599,6 +18123,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -16636,6 +18164,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -16668,6 +18200,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -16698,6 +18233,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16736,6 +18274,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -16777,6 +18319,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16807,6 +18352,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -16850,6 +18398,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -16891,6 +18442,10 @@
    "dumbbells": [
     "1-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -16930,6 +18485,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -16968,6 +18527,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17008,6 +18570,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -17050,6 +18616,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -17085,6 +18655,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17123,6 +18696,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17165,6 +18741,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -17207,6 +18787,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -17244,6 +18828,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17279,6 +18866,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17310,6 +18900,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17338,6 +18931,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -17370,6 +18966,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -17401,6 +19001,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17436,6 +19039,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -17473,6 +19080,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17503,6 +19113,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17543,6 +19156,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -17579,6 +19196,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17619,6 +19239,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -17656,6 +19280,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17694,6 +19321,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -17733,6 +19364,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17765,6 +19399,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -17794,6 +19431,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17830,6 +19470,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -17868,6 +19511,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -17906,6 +19553,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17944,6 +19594,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -17983,6 +19636,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18026,6 +19682,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -18067,6 +19727,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -18101,6 +19764,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18138,6 +19804,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -18172,6 +19842,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18208,6 +19881,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18242,6 +19918,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -18286,6 +19965,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18329,6 +20011,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18361,6 +20046,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18399,6 +20087,10 @@
    "dumbbells": [
     "2-medium",
     "1-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -18440,6 +20132,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -18477,6 +20172,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -18513,6 +20211,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18553,6 +20254,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -18591,6 +20295,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -18626,6 +20334,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18665,6 +20376,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -18700,6 +20415,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -18734,6 +20452,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18775,6 +20496,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -18817,6 +20542,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -18856,6 +20584,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -18895,6 +20626,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -18934,6 +20668,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -18978,6 +20716,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -19011,6 +20753,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -19046,6 +20791,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19087,6 +20835,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -19125,6 +20877,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19164,6 +20919,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19203,6 +20961,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19240,6 +21001,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19276,6 +21040,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19312,6 +21079,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -19351,6 +21122,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19389,6 +21163,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19425,6 +21202,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19462,6 +21242,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19501,6 +21284,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19538,6 +21324,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -19577,6 +21366,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19620,6 +21412,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19658,6 +21453,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19699,6 +21497,10 @@
    "dumbbells": [
     "1-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -19742,6 +21544,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19784,6 +21589,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19821,6 +21629,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -19854,6 +21665,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19890,6 +21704,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19924,6 +21741,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -19964,6 +21784,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -20013,6 +21837,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20053,6 +21880,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -20096,6 +21927,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20135,6 +21969,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20172,6 +22009,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -20205,6 +22046,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20244,6 +22088,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20286,6 +22133,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -20323,6 +22174,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20364,6 +22218,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -20402,6 +22259,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20440,6 +22300,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -20486,6 +22350,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -20520,6 +22387,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -20561,6 +22431,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -20603,6 +22477,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20639,6 +22516,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20674,6 +22554,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -20715,6 +22598,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -20757,6 +22643,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -20798,6 +22687,10 @@
    "dumbbells": [
     "2-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -20841,6 +22734,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20879,6 +22775,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -20922,6 +22821,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -20963,6 +22866,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -21001,6 +22908,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21036,6 +22946,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21074,6 +22987,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21115,6 +23031,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21162,6 +23081,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -21202,6 +23125,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21238,6 +23164,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21273,6 +23202,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21311,6 +23243,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21352,6 +23287,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -21395,6 +23334,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21434,6 +23376,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21474,6 +23419,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21517,6 +23465,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21556,6 +23507,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21598,6 +23552,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -21638,6 +23596,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21678,6 +23639,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21715,6 +23679,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21753,6 +23720,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21789,6 +23759,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -21828,6 +23801,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -21872,6 +23849,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21914,6 +23894,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -21955,6 +23938,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -21995,6 +23982,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -22033,6 +24024,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22068,6 +24062,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -22106,6 +24103,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22143,6 +24143,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -22180,6 +24183,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22219,6 +24225,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -22258,6 +24268,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22293,6 +24306,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -22329,6 +24345,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -22370,6 +24389,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -22409,6 +24431,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22448,6 +24473,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -22489,6 +24517,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -22534,6 +24566,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22566,6 +24601,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -22603,6 +24642,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22640,6 +24682,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -22676,6 +24721,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22712,6 +24760,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -22751,6 +24802,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -22792,6 +24847,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -22828,6 +24886,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -22868,6 +24929,10 @@
    "dumbbells": [
     "1-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -22909,6 +24974,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -22953,6 +25021,10 @@
    "dumbbells": [
     "2-heavy",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -22994,6 +25066,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23028,6 +25103,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -23066,6 +25145,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23107,6 +25189,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -23144,6 +25229,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -23187,6 +25275,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23226,6 +25317,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -23267,6 +25361,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23305,6 +25402,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -23350,6 +25451,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23393,6 +25497,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -23435,6 +25543,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23477,6 +25588,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23516,6 +25630,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23556,6 +25673,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23591,6 +25711,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -23629,6 +25752,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -23670,6 +25796,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23707,6 +25836,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -23745,6 +25877,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -23784,6 +25919,10 @@
    "dumbbells": [
     "2-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -23818,6 +25957,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23854,6 +25996,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -23893,6 +26038,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -23933,6 +26081,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -23969,6 +26120,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24003,6 +26157,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24042,6 +26199,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -24083,6 +26244,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24124,6 +26288,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -24164,6 +26332,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24199,6 +26370,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -24239,6 +26414,10 @@
    "dumbbells": [
     "2-medium",
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -24282,6 +26461,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24319,6 +26501,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24353,6 +26538,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24388,6 +26576,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24426,6 +26617,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24468,6 +26662,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -24502,6 +26700,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24538,6 +26739,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -24580,6 +26784,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -24619,6 +26827,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24656,6 +26867,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24699,6 +26913,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24734,6 +26951,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24770,6 +26990,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24807,6 +27030,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24845,6 +27071,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -24884,6 +27113,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -24925,6 +27158,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24960,6 +27196,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -24998,6 +27237,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25039,6 +27281,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -25074,6 +27320,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25106,6 +27355,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25142,6 +27394,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -25184,6 +27439,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25218,6 +27476,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25258,6 +27519,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25298,6 +27562,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25338,6 +27605,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25373,6 +27643,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -25417,6 +27690,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -25460,6 +27737,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25496,6 +27776,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25535,6 +27818,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25572,6 +27858,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25613,6 +27902,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -25654,6 +27947,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25690,6 +27986,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25728,6 +28027,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -25763,6 +28065,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25797,6 +28102,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25835,6 +28143,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25872,6 +28183,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -25914,6 +28229,10 @@
    "dumbbells": [
     "2-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -25956,6 +28275,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -25991,6 +28313,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26026,6 +28351,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26060,6 +28388,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26102,6 +28433,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26142,6 +28476,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -26185,6 +28522,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26222,6 +28562,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -26258,6 +28601,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -26299,6 +28646,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26339,6 +28689,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26373,6 +28726,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26410,6 +28766,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26450,6 +28809,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26492,6 +28854,10 @@
    "dumbbells": [
     "2-light-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -26529,6 +28895,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26563,6 +28932,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26596,6 +28968,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26631,6 +29006,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26671,6 +29049,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26710,6 +29091,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26751,6 +29135,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -26792,6 +29180,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26833,6 +29224,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26872,6 +29266,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26906,6 +29303,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -26941,6 +29341,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -26978,6 +29381,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -27017,6 +29423,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -27058,6 +29468,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -27100,6 +29513,9 @@
    "dumbbells": [
     "2-heavy",
     "optional"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27140,6 +29556,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -27183,6 +29602,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27222,6 +29644,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27257,6 +29682,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -27294,6 +29722,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27332,6 +29763,10 @@
    "dumbbells": [
     "2-light",
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -27378,6 +29813,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -27422,6 +29860,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -27464,6 +29905,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27495,6 +29939,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27530,6 +29977,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27564,6 +30014,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27599,6 +30052,10 @@
    "dumbbells": [
     "1-heavy",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -27638,6 +30095,10 @@
    "dumbbells": [
     "2-light-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -27684,6 +30145,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -27724,6 +30189,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27760,6 +30228,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27797,6 +30268,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27839,6 +30313,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27884,6 +30361,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27928,6 +30408,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -27963,6 +30446,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -27999,6 +30485,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -28037,6 +30526,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28074,6 +30567,10 @@
    "dumbbells": [
     "1-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28114,6 +30611,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28152,6 +30652,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28188,6 +30692,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -28220,6 +30727,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28254,6 +30764,9 @@
    ],
    "dumbbells": [
     "2-you-can-lift-to-the-side"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -28294,6 +30807,10 @@
    "dumbbells": [
     "2-light",
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -28341,6 +30858,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28381,6 +30901,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28423,6 +30947,9 @@
    "dumbbells": [
     "2-heavy",
     "optional"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28463,6 +30990,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28498,6 +31029,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -28538,6 +31072,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -28578,6 +31116,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -28618,6 +31159,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28655,6 +31200,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28693,6 +31241,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28732,6 +31283,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -28773,6 +31328,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -28812,6 +31371,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -28859,6 +31422,10 @@
    "dumbbells": [
     "1-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -28903,6 +31470,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28938,6 +31508,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -28977,6 +31550,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29016,6 +31592,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29053,6 +31632,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29089,6 +31671,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29132,6 +31717,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -29177,6 +31766,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -29213,6 +31805,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -29252,6 +31848,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29287,6 +31886,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -29324,6 +31926,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -29362,6 +31968,9 @@
    ],
    "dumbbells": [
     "2-you-can-curl-and-press"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -29405,6 +32014,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -29448,6 +32061,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -29486,6 +32102,9 @@
    ],
    "dumbbells": [
     "1-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -29521,6 +32140,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29558,6 +32180,10 @@
     "2-light",
     "2-medium",
     "optional"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -29600,6 +32226,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -29638,6 +32268,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29680,6 +32313,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -29719,6 +32355,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -29757,6 +32396,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -29796,6 +32438,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -29832,6 +32477,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -29867,6 +32516,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -29907,6 +32559,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -29950,6 +32606,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -29989,6 +32648,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30025,6 +32687,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -30063,6 +32728,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30104,6 +32772,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -30144,6 +32816,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30180,6 +32855,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30213,6 +32891,9 @@
     "no-equipment"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -30256,6 +32937,10 @@
    "dumbbells": [
     "1-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -30299,6 +32984,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -30340,6 +33028,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -30386,6 +33078,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30425,6 +33120,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -30465,6 +33163,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30508,6 +33209,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30546,6 +33250,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -30586,6 +33293,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -30624,6 +33335,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30662,6 +33376,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -30699,6 +33417,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30735,6 +33456,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -30778,6 +33503,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30820,6 +33548,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -30865,6 +33596,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -30902,6 +33636,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -30943,6 +33680,10 @@
     "2-medium",
     "2-heavy",
     "optional"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -30985,6 +33726,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -31027,6 +33772,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31062,6 +33810,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31099,6 +33850,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31133,6 +33887,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -31168,6 +33925,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31206,6 +33966,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -31246,6 +34010,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -31288,6 +34055,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -31330,6 +34101,10 @@
    "dumbbells": [
     "1-medium",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -31366,6 +34141,9 @@
    ],
    "dumbbells": [
     "bodyweight"
+   ],
+   "dumbbellLoad": [
+    "bodyweight"
    ]
   },
   "moves": [
@@ -31396,6 +34174,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -31437,6 +34218,10 @@
    "dumbbells": [
     "2-light",
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "medium"
    ]
   },
   "moves": [
@@ -31479,6 +34264,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -31523,6 +34312,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31561,6 +34353,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31593,6 +34388,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -31629,6 +34427,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31669,6 +34470,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -31715,6 +34519,9 @@
    ],
    "dumbbells": [
     "1-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -31755,6 +34562,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -31796,6 +34606,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -31835,6 +34648,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -31876,6 +34692,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -31916,6 +34735,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -31954,6 +34776,9 @@
    ],
    "dumbbells": [
     "1-challenging"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -31990,6 +34815,9 @@
    ],
    "dumbbells": [
     "2-light-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32030,6 +34858,9 @@
    ],
    "dumbbells": [
     "2-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -32073,6 +34904,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32114,6 +34948,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -32153,6 +34990,9 @@
    ],
    "dumbbells": [
     "1-medium-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -32191,6 +35031,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32231,6 +35074,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32269,6 +35115,10 @@
    "dumbbells": [
     "1-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -32310,6 +35160,10 @@
    "dumbbells": [
     "1-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -32346,6 +35200,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32385,6 +35242,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -32425,6 +35285,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -32467,6 +35330,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -32508,6 +35375,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32546,6 +35416,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32582,6 +35455,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -32625,6 +35501,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -32666,6 +35546,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32709,6 +35592,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -32745,6 +35631,10 @@
    "dumbbells": [
     "1-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -32781,6 +35671,9 @@
    ],
    "dumbbells": [
     "2-medium"
+   ],
+   "dumbbellLoad": [
+    "medium"
    ]
   },
   "moves": [
@@ -32820,6 +35713,10 @@
    "dumbbells": [
     "2-medium",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
    ]
   },
   "moves": [
@@ -32856,6 +35753,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [
@@ -32898,6 +35798,10 @@
    "dumbbells": [
     "2-light",
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -32935,6 +35839,9 @@
    ],
    "dumbbells": [
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -32969,6 +35876,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -33007,6 +35917,10 @@
    "dumbbells": [
     "2-light",
     "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "light",
+    "heavy"
    ]
   },
   "moves": [
@@ -33045,6 +35959,9 @@
    "dumbbells": [
     "2-medium",
     "optional"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -33081,6 +35998,9 @@
    ],
    "dumbbells": [
     "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
    ]
   },
   "moves": [
@@ -33112,6 +36032,9 @@
     "mat"
    ],
    "dumbbells": [
+    "bodyweight"
+   ],
+   "dumbbellLoad": [
     "bodyweight"
    ]
   },
@@ -33151,6 +36074,9 @@
    ],
    "dumbbells": [
     "2-light"
+   ],
+   "dumbbellLoad": [
+    "light"
    ]
   },
   "moves": [

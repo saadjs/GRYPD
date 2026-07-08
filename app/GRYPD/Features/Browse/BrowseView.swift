@@ -7,13 +7,10 @@ struct BrowseView: View {
 
     @State private var filter = WorkoutFilter()
     @State private var showFilters = false
-    /// Month ids whose workouts are collapsed. Initialized on first appear to
-    /// collapse everything except the newest month (which defaults open), so the
-    /// user lands on the freshest workouts. If the current calendar month has no
-    /// workouts yet, the newest month IS the previous month — handled naturally
-    /// since `months` only contains months that have matching workouts.
+    /// Month ids the user has manually collapsed. Every month starts expanded
+    /// (filtered or not) so the full list is visible by default; tapping a month
+    /// header collapses just that one.
     @State private var collapsedMonths: Set<Date> = []
-    @State private var didInitCollapse = false
 
     private var results: [Workout] { catalog.filtered(filter) }
     private var months: [WorkoutMonth] { results.byMonth() }
@@ -70,12 +67,6 @@ struct BrowseView: View {
                     ContentUnavailableView("No matches", systemImage: "magnifyingglass",
                                            description: Text("Try clearing some filters."))
                 }
-            }
-            .onAppear {
-                // Default: expand only the newest month, collapse the rest.
-                guard !didInitCollapse, !months.isEmpty else { return }
-                didInitCollapse = true
-                collapsedMonths = Set(months.dropFirst().map(\.id))
             }
         }
     }

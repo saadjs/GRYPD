@@ -107,6 +107,50 @@ final class WorkoutFilterTests: XCTestCase {
         XCTAssertTrue(filter.matches(thirtyOneMinuteTotalBodyweight))
     }
 
+    func testDumbbellLoadFiltersMatchAnySelectedBucket() {
+        let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["heavy"])
+        let mediumHeavy = workout(id: "mh", title: "T", trainer: "x", duration: 20,
+                                  bodyFocus: "total-body", muscleGroups: ["core"],
+                                  equipment: ["dumbbells"], dumbbellLoad: ["medium", "heavy"])
+        let light = workout(id: "l", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["light"])
+        let bodyweight = workout(id: "bw", title: "T", trainer: "x", duration: 20,
+                                 bodyFocus: "total-body", muscleGroups: ["core"],
+                                 equipment: ["no-equipment"], dumbbellLoad: ["bodyweight"])
+
+        var filter = WorkoutFilter()
+        filter.dumbbellLoad = ["heavy"]
+        XCTAssertTrue(filter.matches(heavy))
+        XCTAssertTrue(filter.matches(mediumHeavy))   // match ANY: heavy ∈ {medium,heavy}
+        XCTAssertFalse(filter.matches(light))
+        XCTAssertFalse(filter.matches(bodyweight))
+
+        filter.dumbbellLoad = ["light", "bodyweight"]
+        XCTAssertFalse(filter.matches(heavy))
+        XCTAssertFalse(filter.matches(mediumHeavy))
+        XCTAssertTrue(filter.matches(light))
+        XCTAssertTrue(filter.matches(bodyweight))
+    }
+
+    func testDumbbellLoadNilOrEmptyNeverMatchesActiveFilter() {
+        let noLoad = workout(id: "none", title: "T", trainer: "x", duration: 20,
+                             bodyFocus: "total-body", muscleGroups: ["core"],
+                             equipment: ["dumbbells"], dumbbellLoad: nil)
+        let emptyLoad = workout(id: "empty", title: "T", trainer: "x", duration: 20,
+                                bodyFocus: "total-body", muscleGroups: ["core"],
+                                equipment: ["dumbbells"], dumbbellLoad: [])
+
+        var filter = WorkoutFilter()
+        XCTAssertTrue(filter.matches(noLoad), "no active filter matches everything")
+
+        filter.dumbbellLoad = ["heavy"]
+        XCTAssertFalse(filter.matches(noLoad))
+        XCTAssertFalse(filter.matches(emptyLoad))
+    }
+
     func testTrainerFilterMatchesSelectedTrainerSlugs() {
         var filter = WorkoutFilter()
         filter.trainers = ["sam", "kim"]
@@ -194,13 +238,15 @@ final class WorkoutFilterTests: XCTestCase {
         filter.bodyFocus = ["upper-body"]
         filter.muscleGroups = ["back"]
         filter.equipment = ["dumbbells"]
+        filter.dumbbellLoad = ["heavy"]
 
-        XCTAssertEqual(filter.activeFacetCount, 5)
+        XCTAssertEqual(filter.activeFacetCount, 6)
 
         filter.clearFacets()
 
         XCTAssertEqual(filter.search, "strength")
         XCTAssertEqual(filter.activeFacetCount, 0)
+        XCTAssertTrue(filter.dumbbellLoad.isEmpty)
         XCTAssertFalse(filter.isEmpty)
     }
 
@@ -354,7 +400,8 @@ private func workout(
     episode: Int? = nil,
     releaseDate: String? = nil,
     summary: String? = nil,
-    moves: [String] = []
+    moves: [String] = [],
+    dumbbellLoad: [String]? = nil
 ) -> Workout {
     Workout(
         id: id,
@@ -370,7 +417,8 @@ private func workout(
             bodyFocus: bodyFocus,
             muscleGroups: muscleGroups,
             equipment: equipment,
-            dumbbells: nil
+            dumbbells: nil,
+            dumbbellLoad: dumbbellLoad
         ),
         moves: moves,
         moveSequence: nil,

@@ -21,6 +21,69 @@ DELISTED = os.path.join(ROOT, "catalog", "delisted.json")
 VALID_FOCUS = {"upper-body", "lower-body", "total-body"}
 VALID_DURATIONS = {10, 11, 20, 21, 30, 31}
 
+# --- Dumbbell-weight buckets ------------------------------------------------
+# The raw `dumbbells` facet encodes quantity + weight in one messy slug
+# (e.g. "2-heavy", "1-medium-heavy", "bodyweight", "optional"). For filtering
+# we collapse each workout to a subset of these four buckets. See the app's
+# FilterSheet "Dumbbell" section, which mirrors this vocabulary.
+VALID_DUMBBELL_LOAD = ("light", "medium", "heavy", "bodyweight")
+# Weight tiers in descending "heaviness" — a single raw slug resolves to the
+# heaviest tier whose name it contains, so compounds fold to the heavier bucket
+# ("2-medium-heavy" -> heavy, "2-light-medium" -> medium).
+_DUMBBELL_TIERS = ("heavy", "medium", "light")
+# Slugs whose name carries no light/medium/heavy word — mapped explicitly.
+_NAMED_DUMBBELL_SLUG = {
+    "1-challenging": "medium",
+    "2-you-can-curl-and-press": "medium",
+    "2-you-can-lift-to-the-side": "medium",  # i.e. "light/medium" -> heavier
+    "bodyweight": "bodyweight",
+}
+# `optional` is ambiguous per-slug, so these workouts are classified by id.
+_OPTIONAL_DUMBBELL_LOAD = {
+    "1577854883": ["heavy"],            # ep16 Amir
+    "1536717998": ["heavy"],            # ep4  Betina
+    "1554611034": ["medium", "heavy"],  # ep9  Kyle
+    "1569935664": ["light", "medium"],  # ep14 Kyle
+    "1591386110": ["heavy"],            # ep30 Kyle
+}
+
+
+def _dumbbell_slug_bucket(slug):
+    """The bucket for one raw dumbbell slug, or None if unrecognized."""
+    if slug in _NAMED_DUMBBELL_SLUG:
+        return _NAMED_DUMBBELL_SLUG[slug]
+    if slug == "optional":
+        return None  # resolved per-id via _OPTIONAL_DUMBBELL_LOAD, not per-slug
+    for tier in _DUMBBELL_TIERS:  # heaviest first
+        if tier in slug:
+            return tier
+    return None
+
+
+def dumbbell_load(raw_slugs, *, workout_id):
+    """Collapse a workout's raw `dumbbells` slugs to ordered weight buckets.
+
+    Never raises: an unclassifiable workout resolves to `[]` and logs a warning
+    so the weekly run surfaces new `optional`/joke slugs without blocking publish.
+    """
+    if workout_id in _OPTIONAL_DUMBBELL_LOAD:
+        return list(_OPTIONAL_DUMBBELL_LOAD[workout_id])
+
+    buckets = set()
+    for slug in raw_slugs or []:
+        bucket = _dumbbell_slug_bucket(slug)
+        if bucket is not None:
+            buckets.add(bucket)
+
+    # Option B: a workout that needs any weights is never "bodyweight only".
+    if buckets & set(_DUMBBELL_TIERS):
+        buckets.discard("bodyweight")
+
+    if not buckets:
+        print(f"  WARN dumbbellLoad empty for {workout_id}: slugs={list(raw_slugs or [])}")
+
+    return [b for b in VALID_DUMBBELL_LOAD if b in buckets]
+
 
 def load_json(path):
     with open(path) as f:
@@ -78,12 +141,14 @@ def text_value(value):
     return None
 
 
-def row_facets(r, nk, opts, *, body_focus):
+def row_facets(r, nk, opts, *, body_focus, workout_id):
+    dumbbells = resolved_slugs(r, nk, opts, "Dumbbells")
     return {
         "bodyFocus": body_focus,
         "muscleGroups": resolved_slugs(r, nk, opts, "Muscle Groups"),
         "equipment": resolved_slugs(r, nk, opts, "Equipment"),
-        "dumbbells": resolved_slugs(r, nk, opts, "Dumbbells"),
+        "dumbbells": dumbbells,
+        "dumbbellLoad": dumbbell_load(dumbbells, workout_id=workout_id),
     }
 
 
@@ -102,7 +167,7 @@ def apple_workout_record(r, nk, opts, ap, slug, wid):
         "appleUrl": f"https://fitness.apple.com/us/workout/{slug}/{wid}",
         "description": ap["description"],
         "releaseDate": ap.get("releaseDate"),
-        "facets": row_facets(r, nk, opts, body_focus=apple_body_focus(ap)),
+        "facets": row_facets(r, nk, opts, body_focus=apple_body_focus(ap), workout_id=wid),
         "moves": resolved_slugs(r, nk, opts, "Types of Moves"),
     }
 
@@ -115,8 +180,9 @@ def fallback_workout_record(r, nk, opts):
         or text_value(r.get(nk["Format"]))
         or text_value(r.get(nk["Detailed Moves"]))
     )
+    wid = f"seatable-{r['_id']}"
     record = {
-        "id": f"seatable-{r['_id']}",
+        "id": wid,
         "discipline": "strength",
         "title": f"Strength with {trainer_label}",
         "trainer": slugify(trainer_label),
@@ -129,6 +195,7 @@ def fallback_workout_record(r, nk, opts):
             nk,
             opts,
             body_focus=slugify(resolve(r.get(nk["Body Focus"]), opts.get("Body Focus", {}))),
+            workout_id=wid,
         ),
         "moves": resolved_slugs(r, nk, opts, "Types of Moves"),
     }

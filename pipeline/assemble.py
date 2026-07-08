@@ -15,6 +15,7 @@ from common import (
     VALID_DURATIONS,
     VALID_FOCUS,
     ap_key,
+    dumbbell_load,
     fallback_workout_record,
     load_json,
     load_table,
@@ -157,6 +158,13 @@ def build_complete_catalog(cat):
             add_alias(fallback, f"seatable-{row['_id']}")
         fallbacks.append(fallback)
     complete = cat + fallbacks
+    # Normalize the derived dumbbellLoad bucket on every record from its raw
+    # `dumbbells` facet. enrich.py resumes historical records verbatim (without
+    # recomputing facets), so this publish-time pass is what backfills the field
+    # across the whole catalog — old, new, and fallback — idempotently.
+    for rec in complete:
+        facets = rec.get("facets") or {}
+        facets["dumbbellLoad"] = dumbbell_load(facets.get("dumbbells"), workout_id=rec["id"])
     complete.sort(
         key=lambda r: (
             r.get("releaseDate") is None,

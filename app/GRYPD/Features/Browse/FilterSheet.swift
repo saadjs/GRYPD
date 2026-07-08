@@ -28,6 +28,11 @@ struct FilterSheet: View {
 
     private let durations = [10, 20, 30]
     private let focuses = ["upper-body", "lower-body", "total-body"]
+    // Closed set of dumbbell-weight buckets (ascending load, bodyweight last).
+    // Labels are hardcoded — these are a fixed vocabulary distinct from the raw
+    // `taxonomy.dumbbells` slugs used for the detail-view chips.
+    private let dumbbellLoads = [("Light", "light"), ("Medium", "medium"),
+                                 ("Heavy", "heavy"), ("Bodyweight", "bodyweight")]
 
     var body: some View {
         NavigationStack {
@@ -54,6 +59,10 @@ struct FilterSheet: View {
                                     taxonomy.equipmentSorted.map { ($0.label, $0.slug) },
                                     isOn: { draft.equipment.contains($0) },
                                     toggle: { draft.toggle($0, in: \.equipment) })
+                        gridSection("Dumbbell",
+                                    dumbbellLoads,
+                                    isOn: { draft.dumbbellLoad.contains($0) },
+                                    toggle: { draft.toggle($0, in: \.dumbbellLoad) })
                         gridSection("Trainer",
                                     taxonomy.trainersSorted.map { ($0.label, $0.slug) },
                                     isOn: { draft.trainers.contains($0) },

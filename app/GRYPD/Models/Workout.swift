@@ -63,6 +63,12 @@ struct Facets: Codable, Hashable {
     let muscleGroups: [String]
     let equipment: [String]
     let dumbbells: [String]?
+    /// Collapsed dumbbell-weight buckets for filtering — a subset of
+    /// {light, medium, heavy, bodyweight}, computed by the pipeline from the raw
+    /// `dumbbells` slugs. Optional for forward-compatibility: an older cached
+    /// catalog without the field decodes to `nil` (treated as "no buckets")
+    /// rather than failing the whole decode.
+    let dumbbellLoad: [String]?
 }
 
 extension Workout {

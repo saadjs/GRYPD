@@ -89,7 +89,8 @@ private func workout(id: String, aliases: [String]? = nil, title: String) -> Wor
             bodyFocus: "total-body",
             muscleGroups: ["glutes"],
             equipment: ["dumbbells"],
-            dumbbells: ["2-medium"]
+            dumbbells: ["2-medium"],
+            dumbbellLoad: ["medium"]
         ),
         moves: ["squat"],
         moveSequence: nil,

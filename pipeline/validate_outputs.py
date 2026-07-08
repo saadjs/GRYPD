@@ -5,7 +5,15 @@ import os
 import re
 import sys
 
-from common import APP_RESOURCES_DIR, DIST_DIR, VALID_DURATIONS, VALID_FOCUS, load_json, sha256_10
+from common import (
+    APP_RESOURCES_DIR,
+    DIST_DIR,
+    VALID_DUMBBELL_LOAD,
+    VALID_DURATIONS,
+    VALID_FOCUS,
+    load_json,
+    sha256_10,
+)
 
 TAXONOMY_BUCKETS = {
     "bodyFocus",
@@ -205,6 +213,13 @@ def validate_workouts(workouts, taxonomy, errors):
                 facets.get("dumbbells") is None or is_string_list(facets.get("dumbbells")),
                 errors,
                 f"{prefix}.facets.dumbbells must be string array or omitted",
+            )
+            dumbbell_load = facets.get("dumbbellLoad")
+            require(
+                isinstance(dumbbell_load, list)
+                and all(v in VALID_DUMBBELL_LOAD for v in dumbbell_load),
+                errors,
+                f"{prefix}.facets.dumbbellLoad must be a list of {sorted(VALID_DUMBBELL_LOAD)}",
             )
 
         validate_taxonomy_coverage(workout, taxonomy, errors, prefix)

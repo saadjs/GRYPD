@@ -56,7 +56,8 @@ private func workout(id: String, title: String, releaseDate: String? = nil) -> W
             bodyFocus: "total-body",
             muscleGroups: [],
             equipment: [],
-            dumbbells: nil
+            dumbbells: nil,
+            dumbbellLoad: nil
         ),
         moves: [],
         moveSequence: nil,

@@ -8,10 +8,12 @@ struct WorkoutFilter: Equatable {
     var bodyFocus: Set<String> = []     // slugs
     var muscleGroups: Set<String> = []  // slugs (match ANY)
     var equipment: Set<String> = []     // slugs (match ANY)
+    var dumbbellLoad: Set<String> = []  // light/medium/heavy/bodyweight (match ANY)
 
     /// Active facet filters (search is handled separately for the "clear" affordance).
     var activeFacetCount: Int {
-        durations.count + trainers.count + bodyFocus.count + muscleGroups.count + equipment.count
+        durations.count + trainers.count + bodyFocus.count
+            + muscleGroups.count + equipment.count + dumbbellLoad.count
     }
     var isEmpty: Bool {
         search.trimmingCharacters(in: .whitespaces).isEmpty && activeFacetCount == 0
@@ -27,6 +29,7 @@ struct WorkoutFilter: Equatable {
         if !bodyFocus.isEmpty && !bodyFocus.contains(w.facets.bodyFocus) { return false }
         if !muscleGroups.isEmpty && muscleGroups.isDisjoint(with: w.facets.muscleGroups) { return false }
         if !equipment.isEmpty && equipment.isDisjoint(with: w.facets.equipment) { return false }
+        if !dumbbellLoad.isEmpty && dumbbellLoad.isDisjoint(with: w.facets.dumbbellLoad ?? []) { return false }
         let q = search.trimmingCharacters(in: .whitespaces)
         if !q.isEmpty {
             // Search matches only by episode number, as a prefix so "2" hits
@@ -43,6 +46,7 @@ struct WorkoutFilter: Equatable {
     }
 
     mutating func clearFacets() {
-        durations = []; trainers = []; bodyFocus = []; muscleGroups = []; equipment = []
+        durations = []; trainers = []; bodyFocus = []
+        muscleGroups = []; equipment = []; dumbbellLoad = []
     }
 }
