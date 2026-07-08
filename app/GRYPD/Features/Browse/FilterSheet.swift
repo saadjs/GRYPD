@@ -32,7 +32,11 @@ struct FilterSheet: View {
     // Labels are hardcoded — these are a fixed vocabulary distinct from the raw
     // `taxonomy.dumbbells` slugs used for the detail-view chips.
     private let dumbbellLoads = [("Light", "light"), ("Medium", "medium"),
-                                 ("Heavy", "heavy"), ("Bodyweight", "bodyweight")]
+                                 ("Heavy", "heavy")]
+
+    private var allowsDumbbellLoadSelection: Bool {
+        draft.equipment.isEmpty || draft.equipment.contains("dumbbells")
+    }
 
     var body: some View {
         NavigationStack {
@@ -58,11 +62,12 @@ struct FilterSheet: View {
                         gridSection("Equipment",
                                     taxonomy.equipmentSorted.map { ($0.label, $0.slug) },
                                     isOn: { draft.equipment.contains($0) },
-                                    toggle: { draft.toggle($0, in: \.equipment) })
+                                    toggle: { draft.toggleEquipment($0) })
                         gridSection("Dumbbell",
                                     dumbbellLoads,
                                     isOn: { draft.dumbbellLoad.contains($0) },
-                                    toggle: { draft.toggle($0, in: \.dumbbellLoad) })
+                                    isEnabled: { _ in allowsDumbbellLoadSelection },
+                                    toggle: { draft.toggleDumbbellLoad($0) })
                         gridSection("Trainer",
                                     taxonomy.trainersSorted.map { ($0.label, $0.slug) },
                                     isOn: { draft.trainers.contains($0) },
@@ -121,6 +126,7 @@ struct FilterSheet: View {
     private func gridSection<T: Hashable>(_ title: String,
                                           _ options: [(String, T)],
                                           isOn: @escaping (T) -> Bool,
+                                          isEnabled: @escaping (T) -> Bool = { _ in true },
                                           toggle: @escaping (T) -> Void) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             sectionHeader(title)
@@ -129,6 +135,7 @@ struct FilterSheet: View {
                       spacing: 12) {
                 ForEach(options, id: \.1) { label, value in
                     let selected = isOn(value)
+                    let enabled = isEnabled(value)
                     Button { toggle(value) } label: {
                         Text(label)
                             .font(.subheadline.weight(.semibold))   // matches Browse row titles
@@ -136,11 +143,12 @@ struct FilterSheet: View {
                             .minimumScaleFactor(0.8)
                             .frame(maxWidth: .infinity)
                             .frame(height: gridButtonHeight)
-                            .foregroundStyle(selected ? Color.onBrand : .white)
-                            .background(selected ? Color.brand : Color.white.opacity(0.08),
+                            .foregroundStyle(selected ? Color.onBrand : .white.opacity(enabled ? 1 : 0.35))
+                            .background(selected ? Color.brand : Color.white.opacity(enabled ? 0.08 : 0.04),
                                         in: Capsule())
                     }
                     .buttonStyle(.plain)
+                    .disabled(!enabled)
                 }
             }
         }

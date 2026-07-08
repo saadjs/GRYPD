@@ -107,6 +107,38 @@ final class WorkoutFilterTests: XCTestCase {
         XCTAssertTrue(filter.matches(thirtyOneMinuteTotalBodyweight))
     }
 
+    func testNoEquipmentToggleIsExclusiveAndClearsDumbbellLoad() {
+        var filter = WorkoutFilter()
+        filter.equipment = ["dumbbells", "mat"]
+        filter.dumbbellLoad = ["heavy"]
+
+        filter.toggleEquipment("no-equipment")
+
+        XCTAssertEqual(filter.equipment, ["no-equipment"])
+        XCTAssertTrue(filter.dumbbellLoad.isEmpty)
+    }
+
+    func testDumbbellLoadToggleAutoSelectsDumbbellEquipment() {
+        var filter = WorkoutFilter()
+        filter.equipment = ["no-equipment"]
+
+        filter.toggleDumbbellLoad("heavy")
+
+        XCTAssertEqual(filter.equipment, ["dumbbells"])
+        XCTAssertEqual(filter.dumbbellLoad, ["heavy"])
+    }
+
+    func testRemovingDumbbellEquipmentClearsDumbbellLoad() {
+        var filter = WorkoutFilter()
+        filter.equipment = ["dumbbells"]
+        filter.dumbbellLoad = ["medium", "heavy"]
+
+        filter.toggleEquipment("dumbbells")
+
+        XCTAssertTrue(filter.equipment.isEmpty)
+        XCTAssertTrue(filter.dumbbellLoad.isEmpty)
+    }
+
     func testDumbbellLoadFiltersRequireExactlySelectedWeightedBuckets() {
         let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
                             bodyFocus: "total-body", muscleGroups: ["core"],
@@ -138,6 +170,38 @@ final class WorkoutFilterTests: XCTestCase {
         XCTAssertFalse(filter.matches(lightHeavy))
         XCTAssertFalse(filter.matches(light))
         XCTAssertTrue(filter.matches(bodyweight))
+    }
+
+    func testExplicitDumbbellEquipmentMakesDumbbellLoadExcludeBodyweight() {
+        let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["heavy"])
+        let bodyweight = workout(id: "bw", title: "T", trainer: "x", duration: 20,
+                                 bodyFocus: "total-body", muscleGroups: ["core"],
+                                 equipment: ["no-equipment"], dumbbellLoad: ["bodyweight"])
+
+        var filter = WorkoutFilter()
+        filter.equipment = ["dumbbells"]
+        filter.dumbbellLoad = ["heavy"]
+
+        XCTAssertTrue(filter.matches(heavy))
+        XCTAssertFalse(filter.matches(bodyweight))
+    }
+
+    func testNoEquipmentWithDumbbellLoadDoesNotFallbackToBodyweight() {
+        let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["heavy"])
+        let bodyweight = workout(id: "bw", title: "T", trainer: "x", duration: 20,
+                                 bodyFocus: "total-body", muscleGroups: ["core"],
+                                 equipment: ["no-equipment"], dumbbellLoad: ["bodyweight"])
+
+        var filter = WorkoutFilter()
+        filter.equipment = ["no-equipment"]
+        filter.dumbbellLoad = ["heavy"]
+
+        XCTAssertFalse(filter.matches(heavy))
+        XCTAssertFalse(filter.matches(bodyweight))
     }
 
     func testDumbbellLoadBodyweightSelectionMatchesOnlyBodyweightWorkouts() {
@@ -394,6 +458,25 @@ final class WorkoutFilterTests: XCTestCase {
                     workoutWeightedBuckets.isEmpty || workoutWeightedBuckets == selection,
                     "\(workout.id) matched \(selection) with load \(workoutBuckets)"
                 )
+            }
+        }
+    }
+
+    func testBundledExplicitDumbbellEquipmentExcludesBodyweightFallback() throws {
+        let workouts = try bundledWorkouts()
+
+        for selection in [Set(["light"]), Set(["medium"]), Set(["heavy"]),
+                          Set(["medium", "heavy"])] {
+            let matches = matchedWorkouts(
+                workouts,
+                equipment: ["dumbbells"],
+                dumbbellLoad: selection
+            )
+            XCTAssertGreaterThan(matches.count, 0, "\(selection) should match bundled dumbbell workouts")
+
+            for workout in matches {
+                XCTAssertEqual(Set(workout.facets.dumbbellLoad ?? []), selection,
+                               "\(workout.id) matched \(selection) with load \(workout.facets.dumbbellLoad ?? [])")
             }
         }
     }

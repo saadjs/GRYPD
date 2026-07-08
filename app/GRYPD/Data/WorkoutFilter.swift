@@ -45,6 +45,34 @@ struct WorkoutFilter: Equatable {
         else { self[keyPath: keyPath].insert(value) }
     }
 
+    mutating func toggleEquipment(_ slug: String) {
+        if equipment.contains(slug) {
+            equipment.remove(slug)
+        } else if slug == "no-equipment" {
+            equipment = ["no-equipment"]
+        } else {
+            equipment.insert(slug)
+            equipment.remove("no-equipment")
+        }
+
+        if !equipment.contains("dumbbells") {
+            dumbbellLoad = []
+        }
+    }
+
+    mutating func toggleDumbbellLoad(_ slug: String) {
+        if dumbbellLoad.contains(slug) {
+            dumbbellLoad.remove(slug)
+        } else {
+            dumbbellLoad.insert(slug)
+        }
+
+        if ["light", "medium", "heavy"].contains(slug) {
+            equipment.insert("dumbbells")
+            equipment.remove("no-equipment")
+        }
+    }
+
     mutating func clearFacets() {
         durations = []; trainers = []; bodyFocus = []
         muscleGroups = []; equipment = []; dumbbellLoad = []
@@ -61,9 +89,10 @@ struct WorkoutFilter: Equatable {
             return workoutWeighted.isEmpty && workoutLoad.contains("bodyweight")
         }
 
-        // Bodyweight-only workouts do not require an unavailable dumbbell tier,
-        // so they remain visible for any selected weighted tier.
-        if workoutWeighted.isEmpty {
+        // Bodyweight-only workouts are a convenience fallback for a bare
+        // dumbbell-tier search. Once the user explicitly scopes Equipment to
+        // Dumbbells, the tier acts as a refinement of dumbbell workouts only.
+        if equipment.isEmpty && workoutWeighted.isEmpty {
             return workoutLoad.contains("bodyweight")
         }
 
