@@ -107,7 +107,55 @@ final class WorkoutFilterTests: XCTestCase {
         XCTAssertTrue(filter.matches(thirtyOneMinuteTotalBodyweight))
     }
 
-    func testDumbbellLoadFiltersMatchAnySelectedBucket() {
+    func testDumbbellLoadFiltersRequireExactlySelectedWeightedBuckets() {
+        let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["heavy"])
+        let mediumHeavy = workout(id: "mh", title: "T", trainer: "x", duration: 20,
+                                  bodyFocus: "total-body", muscleGroups: ["core"],
+                                  equipment: ["dumbbells"], dumbbellLoad: ["medium", "heavy"])
+        let lightHeavy = workout(id: "lh", title: "T", trainer: "x", duration: 20,
+                                 bodyFocus: "total-body", muscleGroups: ["core"],
+                                 equipment: ["dumbbells"], dumbbellLoad: ["light", "heavy"])
+        let light = workout(id: "l", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["light"])
+        let bodyweight = workout(id: "bw", title: "T", trainer: "x", duration: 20,
+                                 bodyFocus: "total-body", muscleGroups: ["core"],
+                                 equipment: ["no-equipment"], dumbbellLoad: ["bodyweight"])
+
+        var filter = WorkoutFilter()
+        filter.dumbbellLoad = ["heavy"]
+        XCTAssertTrue(filter.matches(heavy))
+        XCTAssertFalse(filter.matches(mediumHeavy))
+        XCTAssertFalse(filter.matches(lightHeavy))
+        XCTAssertFalse(filter.matches(light))
+        XCTAssertTrue(filter.matches(bodyweight))
+
+        filter.dumbbellLoad = ["medium", "heavy"]
+        XCTAssertFalse(filter.matches(heavy))
+        XCTAssertTrue(filter.matches(mediumHeavy))
+        XCTAssertFalse(filter.matches(lightHeavy))
+        XCTAssertFalse(filter.matches(light))
+        XCTAssertTrue(filter.matches(bodyweight))
+    }
+
+    func testDumbbellLoadBodyweightSelectionMatchesOnlyBodyweightWorkouts() {
+        let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
+                            bodyFocus: "total-body", muscleGroups: ["core"],
+                            equipment: ["dumbbells"], dumbbellLoad: ["heavy"])
+        let bodyweight = workout(id: "bw", title: "T", trainer: "x", duration: 20,
+                                 bodyFocus: "total-body", muscleGroups: ["core"],
+                                 equipment: ["no-equipment"], dumbbellLoad: ["bodyweight"])
+
+        var filter = WorkoutFilter()
+        filter.dumbbellLoad = ["bodyweight"]
+
+        XCTAssertFalse(filter.matches(heavy))
+        XCTAssertTrue(filter.matches(bodyweight))
+    }
+
+    func testDumbbellLoadBodyweightDoesNotLoosenSelectedWeightedBuckets() {
         let heavy = workout(id: "h", title: "T", trainer: "x", duration: 20,
                             bodyFocus: "total-body", muscleGroups: ["core"],
                             equipment: ["dumbbells"], dumbbellLoad: ["heavy"])
@@ -122,13 +170,8 @@ final class WorkoutFilterTests: XCTestCase {
                                  equipment: ["no-equipment"], dumbbellLoad: ["bodyweight"])
 
         var filter = WorkoutFilter()
-        filter.dumbbellLoad = ["heavy"]
-        XCTAssertTrue(filter.matches(heavy))
-        XCTAssertTrue(filter.matches(mediumHeavy))   // match ANY: heavy ∈ {medium,heavy}
-        XCTAssertFalse(filter.matches(light))
-        XCTAssertFalse(filter.matches(bodyweight))
-
         filter.dumbbellLoad = ["light", "bodyweight"]
+
         XCTAssertFalse(filter.matches(heavy))
         XCTAssertFalse(filter.matches(mediumHeavy))
         XCTAssertTrue(filter.matches(light))
@@ -333,6 +376,27 @@ final class WorkoutFilterTests: XCTestCase {
         XCTAssertTrue(matIDs.isDisjoint(with: noEquipmentIDs),
                       "mat and no-equipment should never overlap")
     }
+
+    func testBundledDumbbellLoadFiltersDoNotIncludeUnselectedWeightedBuckets() throws {
+        let workouts = try bundledWorkouts()
+        let weightedBuckets: Set<String> = ["light", "medium", "heavy"]
+
+        for selection in [Set(["light"]), Set(["medium"]), Set(["heavy"]),
+                          Set(["medium", "heavy"])] {
+            let matches = matchedWorkouts(workouts, dumbbellLoad: selection)
+            XCTAssertGreaterThan(matches.count, 0, "\(selection) should match bundled workouts")
+
+            for workout in matches {
+                let workoutBuckets = Set(workout.facets.dumbbellLoad ?? [])
+                let workoutWeightedBuckets = workoutBuckets.intersection(weightedBuckets)
+
+                XCTAssertTrue(
+                    workoutWeightedBuckets.isEmpty || workoutWeightedBuckets == selection,
+                    "\(workout.id) matched \(selection) with load \(workoutBuckets)"
+                )
+            }
+        }
+    }
 }
 
 private func bundledWorkouts() throws -> [Workout] {
@@ -356,7 +420,8 @@ private func countMatches(
     trainers: Set<String> = [],
     bodyFocus: Set<String> = [],
     muscleGroups: Set<String> = [],
-    equipment: Set<String> = []
+    equipment: Set<String> = [],
+    dumbbellLoad: Set<String> = []
 ) -> Int {
     var filter = WorkoutFilter()
     filter.search = search
@@ -365,8 +430,31 @@ private func countMatches(
     filter.bodyFocus = bodyFocus
     filter.muscleGroups = muscleGroups
     filter.equipment = equipment
+    filter.dumbbellLoad = dumbbellLoad
 
     return workouts.filter(filter.matches).count
+}
+
+private func matchedWorkouts(
+    _ workouts: [Workout],
+    search: String = "",
+    durations: Set<Int> = [],
+    trainers: Set<String> = [],
+    bodyFocus: Set<String> = [],
+    muscleGroups: Set<String> = [],
+    equipment: Set<String> = [],
+    dumbbellLoad: Set<String> = []
+) -> [Workout] {
+    var filter = WorkoutFilter()
+    filter.search = search
+    filter.durations = durations
+    filter.trainers = trainers
+    filter.bodyFocus = bodyFocus
+    filter.muscleGroups = muscleGroups
+    filter.equipment = equipment
+    filter.dumbbellLoad = dumbbellLoad
+
+    return workouts.filter(filter.matches)
 }
 
 private func matchedIDs(
@@ -376,17 +464,19 @@ private func matchedIDs(
     trainers: Set<String> = [],
     bodyFocus: Set<String> = [],
     muscleGroups: Set<String> = [],
-    equipment: Set<String> = []
+    equipment: Set<String> = [],
+    dumbbellLoad: Set<String> = []
 ) -> Set<String> {
-    var filter = WorkoutFilter()
-    filter.search = search
-    filter.durations = durations
-    filter.trainers = trainers
-    filter.bodyFocus = bodyFocus
-    filter.muscleGroups = muscleGroups
-    filter.equipment = equipment
-
-    return Set(workouts.filter(filter.matches).map(\.id))
+    Set(matchedWorkouts(
+        workouts,
+        search: search,
+        durations: durations,
+        trainers: trainers,
+        bodyFocus: bodyFocus,
+        muscleGroups: muscleGroups,
+        equipment: equipment,
+        dumbbellLoad: dumbbellLoad
+    ).map(\.id))
 }
 
 private func workout(

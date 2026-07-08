@@ -8,7 +8,7 @@ struct WorkoutFilter: Equatable {
     var bodyFocus: Set<String> = []     // slugs
     var muscleGroups: Set<String> = []  // slugs (match ANY)
     var equipment: Set<String> = []     // slugs (match ANY)
-    var dumbbellLoad: Set<String> = []  // light/medium/heavy/bodyweight (match ANY)
+    var dumbbellLoad: Set<String> = []  // light/medium/heavy/bodyweight
 
     /// Active facet filters (search is handled separately for the "clear" affordance).
     var activeFacetCount: Int {
@@ -29,7 +29,7 @@ struct WorkoutFilter: Equatable {
         if !bodyFocus.isEmpty && !bodyFocus.contains(w.facets.bodyFocus) { return false }
         if !muscleGroups.isEmpty && muscleGroups.isDisjoint(with: w.facets.muscleGroups) { return false }
         if !equipment.isEmpty && equipment.isDisjoint(with: w.facets.equipment) { return false }
-        if !dumbbellLoad.isEmpty && dumbbellLoad.isDisjoint(with: w.facets.dumbbellLoad ?? []) { return false }
+        if !matchesDumbbellLoad(w.facets.dumbbellLoad) { return false }
         let q = search.trimmingCharacters(in: .whitespaces)
         if !q.isEmpty {
             // Search matches only by episode number, as a prefix so "2" hits
@@ -48,5 +48,25 @@ struct WorkoutFilter: Equatable {
     mutating func clearFacets() {
         durations = []; trainers = []; bodyFocus = []
         muscleGroups = []; equipment = []; dumbbellLoad = []
+    }
+
+    private func matchesDumbbellLoad(_ workoutLoad: [String]?) -> Bool {
+        guard !dumbbellLoad.isEmpty else { return true }
+        guard let workoutLoad else { return false }
+
+        let selectedWeighted = dumbbellLoad.subtracting(["bodyweight"])
+        let workoutWeighted = Set(workoutLoad).subtracting(["bodyweight"])
+
+        if selectedWeighted.isEmpty {
+            return workoutWeighted.isEmpty && workoutLoad.contains("bodyweight")
+        }
+
+        // Bodyweight-only workouts do not require an unavailable dumbbell tier,
+        // so they remain visible for any selected weighted tier.
+        if workoutWeighted.isEmpty {
+            return workoutLoad.contains("bodyweight")
+        }
+
+        return workoutWeighted == selectedWeighted
     }
 }
