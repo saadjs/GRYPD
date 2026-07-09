@@ -2,6 +2,41 @@ import XCTest
 @testable import GRYPD
 
 final class LogExerciseDraftTests: XCTestCase {
+    func testMovePickerKeepsLoggedExercisesVisibleAndMarksThemLogged() {
+        let taxonomy = Taxonomy(bodyFocus: [:], muscleGroups: [:], equipment: [:],
+                                dumbbells: [:], trainers: [:],
+                                moves: ["squat": "Squat", "deadlift": "Deadlift"],
+                                disciplines: [:])
+
+        let rows = MovePickerView.makeRows(taxonomy: taxonomy,
+                                           customMoves: [],
+                                           logged: ["squat"])
+
+        XCTAssertEqual(rows.map(\.slug), ["deadlift", "squat"])
+        XCTAssertFalse(rows[0].isLogged)
+        XCTAssertTrue(rows[1].isLogged)
+    }
+
+    func testMovePickerMarksLoggedCustomExerciseWithoutDuplicatingCatalogMoves() {
+        let taxonomy = Taxonomy(bodyFocus: [:], muscleGroups: [:], equipment: [:],
+                                dumbbells: [:], trainers: [:],
+                                moves: ["squat": "Catalog Squat"],
+                                disciplines: [:])
+        let customMoves = [
+            CustomMove(slug: "squat", label: "Custom Squat"),
+            CustomMove(slug: "carry", label: "Suitcase Carry")
+        ]
+
+        let rows = MovePickerView.makeRows(taxonomy: taxonomy,
+                                           customMoves: customMoves,
+                                           logged: ["carry"])
+
+        XCTAssertEqual(rows.map(\.slug), ["squat", "carry"])
+        XCTAssertEqual(rows.first?.label, "Catalog Squat")
+        XCTAssertEqual(rows.last?.label, "Suitcase Carry")
+        XCTAssertEqual(rows.map(\.isLogged), [false, true])
+    }
+
     func testDraftsSeedCatalogMovesWithEditedLabelsAndCustomEntries() {
         let squat = MoveEntry(moveSlug: "squat",
                               label: "Goblet Squat",

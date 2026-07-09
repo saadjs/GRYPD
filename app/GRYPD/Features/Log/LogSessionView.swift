@@ -113,7 +113,7 @@ struct LogSessionView: View {
         .onAppear(perform: seed)
         .sheet(isPresented: $showingMovePicker) {
             MovePickerView(taxonomy: catalog.taxonomy,
-                           excluded: Set(entries.compactMap(\.moveSlug))) { slug, label in
+                           logged: Set(entries.compactMap(\.moveSlug))) { slug, label in
                 addMove(slug: slug, label: label)
             }
             .sheetPresentation()

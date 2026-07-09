@@ -17,8 +17,9 @@ import SwiftData
 /// the app's black canvas with the shared card-surface row fill.
 struct MovePickerView: View {
     let taxonomy: Taxonomy
-    /// Move slugs already present in the session — hidden from the list.
-    let excluded: Set<String>
+    /// Move slugs already present in the session. They stay visible so search
+    /// results explain why they can't be added again.
+    let logged: Set<String>
     let onSelect: (_ slug: String, _ label: String) -> Void
 
     @Environment(\.dismiss) private var dismiss
@@ -31,25 +32,33 @@ struct MovePickerView: View {
 
     /// One selectable row. `custom` is non-nil only for user-created moves, which
     /// gates the swipe-to-delete action.
-    private struct MoveRow: Identifiable {
+    struct MoveRow: Identifiable {
         let slug: String
         let label: String
         let custom: CustomMove?
+        let isLogged: Bool
         var id: String { slug }
     }
 
     private var allMoves: [MoveRow] {
+        Self.makeRows(taxonomy: taxonomy, customMoves: customMoves, logged: logged)
+    }
+
+    static func makeRows(taxonomy: Taxonomy,
+                         customMoves: [CustomMove],
+                         logged: Set<String>) -> [MoveRow] {
         var bySlug: [String: MoveRow] = [:]
         for (slug, label) in taxonomy.moves {
-            bySlug[slug] = MoveRow(slug: slug, label: label, custom: nil)
+            bySlug[slug] = MoveRow(slug: slug, label: label, custom: nil,
+                                   isLogged: logged.contains(slug))
         }
         // Custom moves fill only slugs the catalog doesn't already own: catalog
         // wins so a not-yet-reconciled overlap never renders twice.
         for move in customMoves where bySlug[move.slug] == nil {
-            bySlug[move.slug] = MoveRow(slug: move.slug, label: move.label, custom: move)
+            bySlug[move.slug] = MoveRow(slug: move.slug, label: move.label, custom: move,
+                                       isLogged: logged.contains(move.slug))
         }
         return bySlug.values
-            .filter { !excluded.contains($0.slug) }
             .sorted { $0.label.localizedCaseInsensitiveCompare($1.label) == .orderedAscending }
     }
 
@@ -67,7 +76,11 @@ struct MovePickerView: View {
     /// handful (or zero) moves still match. Keeps the button out of the way while
     /// browsing the full list.
     private var showCreateButton: Bool {
-        !trimmedQuery.isEmpty && results.count <= 5
+        !trimmedQuery.isEmpty
+            && results.count <= 5
+            && !allMoves.contains {
+                $0.label.compare(trimmedQuery, options: [.caseInsensitive, .diacriticInsensitive]) == .orderedSame
+            }
     }
 
     var body: some View {
@@ -133,33 +146,51 @@ struct MovePickerView: View {
     private var movesList: some View {
         List {
             ForEach(results) { move in
-                Button {
-                    finish(slug: move.slug, label: move.label)
-                } label: {
-                    HStack(spacing: 12) {
-                        Text(move.label)
-                            .primaryLabelFont(weight: .medium)
-                            .foregroundStyle(.white)
-                        Spacer(minLength: 12)
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title3)
-                            .foregroundStyle(Color.brand)
-                    }
-                    .contentShape(.rect)
-                }
-                .listRowBackground(Color.white.opacity(0.06))
-                .listRowSeparatorTint(Color.white.opacity(0.08))
-                .swipeActions(edge: .trailing) {
-                    if let custom = move.custom {
-                        Button(role: .destructive) { delete(custom) } label: {
-                            Label("Delete", systemImage: "trash")
+                Group {
+                    if move.isLogged {
+                        moveLabel(move)
+                            .accessibilityLabel("\(move.label), logged")
+                    } else {
+                        Button {
+                            finish(slug: move.slug, label: move.label)
+                        } label: {
+                            moveLabel(move)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            if let custom = move.custom {
+                                Button(role: .destructive) { delete(custom) } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                         }
                     }
                 }
+                .listRowBackground(Color.white.opacity(0.06))
+                .listRowSeparatorTint(Color.white.opacity(0.08))
             }
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
+    }
+
+    private func moveLabel(_ move: MoveRow) -> some View {
+        HStack(spacing: 12) {
+            Text(move.label)
+                .primaryLabelFont(weight: .medium)
+                .foregroundStyle(.white)
+            Spacer(minLength: 12)
+            if move.isLogged {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.title3)
+                    .foregroundStyle(.white.opacity(0.45))
+                    .accessibilityHidden(true)
+            } else {
+                Image(systemName: "plus.circle.fill")
+                    .font(.title3)
+                    .foregroundStyle(Color.brand)
+            }
+        }
+        .contentShape(.rect)
     }
 
     @ViewBuilder private var emptyState: some View {
