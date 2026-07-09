@@ -33,12 +33,13 @@ enum MetricKind: String, Codable {
 
     // MARK: - Values
 
-    /// Epley estimated one-rep max. Missing/zero reps floor to 1 (a logged weight
-    /// always counts as at least a single); reps clamp at 12 because the estimate
-    /// turns to fiction past there — an unclamped 30-rep set would spike the
-    /// strength line into a PR that never happened. Raw reps still feed `volume`.
-    static func estimatedOneRepMax(weight: Double, reps: Int?) -> Double {
-        let effectiveReps = min(max(reps ?? 1, 1), 12)
+    /// Effort-adjusted Epley estimate. Classical rep equations assume a set was
+    /// taken to failure, so reported reps in reserve are added to completed reps.
+    /// Legacy logs have no RIR and retain the previous failure-set assumption.
+    /// The combined count clamps at 12 because high-rep estimates are too variable.
+    static func estimatedOneRepMax(weight: Double, reps: Int?, repsInReserve: Int? = nil) -> Double {
+        let completedReps = max(reps ?? 1, 1)
+        let effectiveReps = min(completedReps + max(repsInReserve ?? 0, 0), 12)
         return weight * (1 + Double(effectiveReps) / 30)
     }
 
@@ -48,7 +49,9 @@ enum MetricKind: String, Codable {
         switch self {
         case .weighted:
             let weight = set.weightUnit.convertedWeight(set.weightValue, to: displayUnit)
-            return Self.estimatedOneRepMax(weight: weight, reps: set.reps)
+            return Self.estimatedOneRepMax(weight: weight,
+                                           reps: set.reps,
+                                           repsInReserve: set.repsInReserve)
         case .bodyweight:
             return Double(max(set.reps ?? 0, 0))
         case .timed:
@@ -63,7 +66,16 @@ enum MetricKind: String, Codable {
     /// ranks by, since that would chart the lower estimate. For bodyweight/timed it
     /// coincides with `topSet` (both pick the most reps / longest hold).
     func peakSet(in sets: [SetEntry], displayUnit: WeightUnit) -> SetEntry? {
-        sets.max { intensity(of: $0, displayUnit: displayUnit) < intensity(of: $1, displayUnit: displayUnit) }
+        let candidates: [SetEntry]
+        if self == .weighted {
+            let ratedSets = sets.filter { $0.repsInReserve != nil }
+            candidates = ratedSets.isEmpty ? sets : ratedSets
+        } else {
+            candidates = sets
+        }
+        return candidates.max {
+            intensity(of: $0, displayUnit: displayUnit) < intensity(of: $1, displayUnit: displayUnit)
+        }
     }
 
     /// Total work across every set in the session. For weighted, missing reps count

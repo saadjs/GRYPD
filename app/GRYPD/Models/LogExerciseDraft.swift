@@ -34,15 +34,22 @@ struct LogExerciseDraft: Identifiable, Equatable {
     var moveSlug: String?
     var label: String
     var sets: [SetDraft]
+    var lastSetRepsInReserve: Int?
+    private(set) var effortSetID: UUID?
 
     init(id: UUID = UUID(),
          moveSlug: String?,
          label: String,
-         sets: [SetDraft] = []) {
+         sets: [SetDraft] = [],
+         lastSetRepsInReserve: Int? = nil) {
         self.id = id
         self.moveSlug = moveSlug
         self.label = label
         self.sets = sets
+        self.lastSetRepsInReserve = lastSetRepsInReserve
+        self.effortSetID = lastSetRepsInReserve == nil
+            ? nil
+            : sets.last { ($0.weight ?? 0) > 0 && ($0.reps ?? 0) > 0 }?.id
     }
 
     var trimmedLabel: String {
@@ -51,6 +58,26 @@ struct LogExerciseDraft: Identifiable, Equatable {
 
     var shouldPersist: Bool {
         !trimmedLabel.isEmpty && sets.contains { !$0.isEmpty }
+    }
+
+    mutating func setLastSetRepsInReserve(_ value: Int?) {
+        lastSetRepsInReserve = value
+        effortSetID = value == nil ? nil : lastWeightedSetID
+    }
+
+    /// A rating belongs to a specific last weighted set. Editing or deleting sets
+    /// can change that identity, in which case retaining the rating would silently
+    /// apply it to a set the user never rated.
+    mutating func reconcileLastSetEffort() {
+        guard effortSetID == lastWeightedSetID else {
+            lastSetRepsInReserve = nil
+            effortSetID = nil
+            return
+        }
+    }
+
+    private var lastWeightedSetID: UUID? {
+        sets.last { ($0.weight ?? 0) > 0 && ($0.reps ?? 0) > 0 }?.id
     }
 }
 
@@ -79,7 +106,10 @@ enum LogExerciseDrafts {
             if let slug = entry.moveSlug { loggedSlugs.insert(slug) }
             drafts.append(LogExerciseDraft(moveSlug: entry.moveSlug,
                                            label: entry.label,
-                                           sets: setDrafts(for: entry, defaultUnit: defaultUnit)))
+                                           sets: setDrafts(for: entry, defaultUnit: defaultUnit),
+                                           lastSetRepsInReserve: entry.orderedSets
+                                            .last(where: isWeightedRepSet)?
+                                            .repsInReserve))
         }
 
         // Append catalog moves the user hasn't logged yet, in catalog order.
@@ -108,5 +138,9 @@ enum LogExerciseDrafts {
     private static func positiveInt(_ value: Int?) -> Int? {
         guard let value, value > 0 else { return nil }
         return value
+    }
+
+    private static func isWeightedRepSet(_ set: SetEntry) -> Bool {
+        set.weightValue > 0 && (set.reps ?? 0) > 0
     }
 }

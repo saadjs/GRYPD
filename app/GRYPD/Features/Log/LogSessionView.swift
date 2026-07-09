@@ -27,6 +27,7 @@ struct LogSessionView: View {
     @State private var didSeed = false
     @State private var showingMovePicker = false
     @State private var activeSetPicker: SetPickerTarget?
+    @State private var showingMissingEffort = false
     /// Measured height of one exercise row, plus one added set. The embedded
     /// List scrolls natively for deletion but is height-pinned inside the sheet.
     @State private var measuredBaseRowHeight: CGFloat = 0
@@ -36,6 +37,7 @@ struct LogSessionView: View {
     /// Fallback per-row height used only until `measuredRowHeight` is known. Scaled
     /// so an un-measured first frame is still roughly right at any Dynamic Type size.
     @ScaledMetric(relativeTo: .body) private var exerciseRowHeight: CGFloat = 72
+    @ScaledMetric(relativeTo: .body) private var effortControlHeight: CGFloat = 78
     @ScaledMetric(relativeTo: .body) private var valueButtonMinHeight: CGFloat = 40
     @ScaledMetric(relativeTo: .body) private var wheelSheetHeight: CGFloat = 230
 
@@ -119,6 +121,11 @@ struct LogSessionView: View {
         .sheet(item: $activeSetPicker) { target in
             setPickerSheet(target)
                 .sheetPresentation()
+        }
+        .alert("Add Set Effort", isPresented: $showingMissingEffort) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("For each weighted exercise, rate your last set by choosing how many more good reps you could have done.")
         }
     }
 
@@ -280,7 +287,11 @@ struct LogSessionView: View {
             ? measuredTwoSetRowHeight - measuredBaseRowHeight
             : exerciseRowHeight * 0.55
         return entries.reduce(CGFloat(0)) { total, entry in
-            total + base + max(0, CGFloat(entry.sets.count - 1)) * extra + exerciseRowInset
+            let hasEffortControl = entry.sets.contains(where: isWeightedRepSet)
+            return total + base
+                + max(0, CGFloat(entry.sets.count - 1)) * extra
+                + (hasEffortControl ? effortControlHeight : 0)
+                + exerciseRowInset
         }
     }
 
@@ -321,6 +332,19 @@ struct LogSessionView: View {
 
             ForEach(entry.sets.indices, id: \.self) { index in
                 setRow(entry: entry, index: index, name: name)
+            }
+
+            if entry.wrappedValue.sets.contains(where: isWeightedRepSet) {
+                valueButton(title: "Last set effort",
+                            value: effortLabel(entry.wrappedValue.lastSetRepsInReserve),
+                            systemImage: "gauge.with.dots.needle.67percent") {
+                    activeSetPicker = SetPickerTarget(entryID: entry.wrappedValue.id,
+                                                      setID: entry.wrappedValue.id,
+                                                      kind: .effort)
+                }
+                Text("Rate your last set · How many more good reps could you do?")
+                    .scaledFont(12, weight: .medium, relativeTo: .caption)
+                    .foregroundStyle(.white.opacity(0.45))
             }
 
             Button {
@@ -393,6 +417,7 @@ struct LogSessionView: View {
                 }
             }
             .frame(maxWidth: .infinity)
+
         }
         .padding(.vertical, 4)
     }
@@ -424,7 +449,17 @@ struct LogSessionView: View {
     private func setPickerSheet(_ target: SetPickerTarget) -> some View {
         NavigationStack {
             Group {
-                if let set = setBinding(entryID: target.entryID, setID: target.setID) {
+                if target.kind == .effort,
+                   let effort = effortBinding(entryID: target.entryID) {
+                    VStack(spacing: 18) {
+                        Text(target.kind.title)
+                            .sectionHeaderFont()
+                            .foregroundStyle(.white)
+                        effortPicker(selection: effort)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.ignoresSafeArea())
+                } else if let set = setBinding(entryID: target.entryID, setID: target.setID) {
                     VStack(spacing: 18) {
                         Text(target.kind.title)
                             .sectionHeaderFont()
@@ -482,7 +517,29 @@ struct LogSessionView: View {
             .pickerStyle(.wheel)
             .frame(height: wheelSheetHeight)
             .clipped()
+        case .effort:
+            EmptyView()
         }
+    }
+
+    private func effortPicker(selection: Binding<Int?>) -> some View {
+        Picker("Reps in reserve", selection: selection) {
+            Text("Choose effort").tag(Optional<Int>.none)
+            ForEach(0...4, id: \.self) { value in
+                Text(effortOptionLabel(value)).tag(Optional(value))
+            }
+        }
+        .pickerStyle(.wheel)
+        .frame(height: wheelSheetHeight)
+        .clipped()
+    }
+
+    private func effortBinding(entryID: UUID) -> Binding<Int?>? {
+        guard let entryIndex = entries.firstIndex(where: { $0.id == entryID }) else { return nil }
+        return Binding(
+            get: { entries[entryIndex].lastSetRepsInReserve },
+            set: { entries[entryIndex].setLastSetRepsInReserve($0) }
+        )
     }
 
     private func setBinding(entryID: UUID, setID: UUID) -> Binding<SetDraft>? {
@@ -490,7 +547,13 @@ struct LogSessionView: View {
               let setIndex = entries[entryIndex].sets.firstIndex(where: { $0.id == setID }) else {
             return nil
         }
-        return $entries[entryIndex].sets[setIndex]
+        return Binding(
+            get: { entries[entryIndex].sets[setIndex] },
+            set: {
+                entries[entryIndex].sets[setIndex] = $0
+                entries[entryIndex].reconcileLastSetEffort()
+            }
+        )
     }
 
     private var weightValues: [Double] {
@@ -510,6 +573,21 @@ struct LogSessionView: View {
     private func timerLabel(_ value: Int?) -> String {
         guard let value, value > 0 else { return "—" }
         return timerLabel(value)
+    }
+
+    private func effortLabel(_ value: Int?) -> String {
+        guard let value else { return "Choose effort" }
+        return effortOptionLabel(value)
+    }
+
+    private func effortOptionLabel(_ value: Int) -> String {
+        switch value {
+        case 0: return "Max effort · 0 more"
+        case 1: return "1 more rep"
+        case 2: return "2 more reps"
+        case 3: return "3 more reps"
+        default: return "4+ more reps"
+        }
     }
 
     private func timerLabel(_ seconds: Int) -> String {
@@ -584,12 +662,14 @@ struct LogSessionView: View {
         entry.wrappedValue.sets.append(SetDraft(weight: seed?.weight,
                                                 reps: seed?.reps,
                                                 seconds: seed?.seconds))
+        entry.wrappedValue.setLastSetRepsInReserve(nil)
     }
 
     private func removeSet(from entry: Binding<LogExerciseDraft>, at index: Int) {
         guard entry.wrappedValue.sets.indices.contains(index),
               entry.wrappedValue.sets.count > 1 else { return }
         entry.wrappedValue.sets.remove(at: index)
+        entry.wrappedValue.reconcileLastSetEffort()
     }
 
     private func setCountLabel(_ count: Int) -> String {
@@ -597,6 +677,11 @@ struct LogSessionView: View {
     }
 
     private func save() {
+        guard !hasWeightedSetMissingEffort else {
+            showingMissingEffort = true
+            return
+        }
+
         let log = editingLog ?? WorkoutLog(workoutId: workout?.id ?? "",
                                            performedAt: performedAt,
                                            note: note.isEmpty ? nil : note)
@@ -616,11 +701,15 @@ struct LogSessionView: View {
             m.log = log
             log.moveEntries.append(m)
             context.insert(m)
+            let lastWeightedSetID = e.sets.last(where: isWeightedRepSet)?.id
             for (index, setDraft) in e.sets.enumerated() where !setDraft.isEmpty {
                 let set = SetEntry(order: index,
                                    weightValue: setDraft.weight ?? 0,
                                    weightUnit: defaultUnit,
                                    reps: setDraft.reps,
+                                   repsInReserve: setDraft.id == lastWeightedSetID
+                                    ? e.lastSetRepsInReserve
+                                    : nil,
                                    seconds: setDraft.seconds)
                 set.moveEntry = m
                 m.sets.append(set)
@@ -628,6 +717,17 @@ struct LogSessionView: View {
             }
         }
         dismiss()
+    }
+
+    private var hasWeightedSetMissingEffort: Bool {
+        entries.contains { entry in
+            entry.sets.contains(where: isWeightedRepSet)
+                && entry.lastSetRepsInReserve == nil
+        }
+    }
+
+    private func isWeightedRepSet(_ set: SetDraft) -> Bool {
+        (set.weight ?? 0) > 0 && (set.reps ?? 0) > 0
     }
 }
 
@@ -645,12 +745,14 @@ private enum SetPickerKind: String, Equatable {
     case weight
     case reps
     case timer
+    case effort
 
     var title: String {
         switch self {
         case .weight: return "Weight"
         case .reps: return "Reps"
         case .timer: return "Timer"
+        case .effort: return "How Did This Set Feel?"
         }
     }
 }

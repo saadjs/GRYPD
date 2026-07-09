@@ -62,6 +62,9 @@ final class SetEntry {
     var weightValue: Double = 0
     var weightUnitRaw: String = WeightUnit.lb.rawValue
     var reps: Int?
+    /// How many additional good-form reps the user believed they could complete.
+    /// Optional so logs created before effort tracking retain their original estimate.
+    var repsInReserve: Int?
     var seconds: Int?
     var moveEntry: MoveEntry?
 
@@ -74,11 +77,13 @@ final class SetEntry {
          weightValue: Double = 0,
          weightUnit: WeightUnit = .lb,
          reps: Int? = nil,
+         repsInReserve: Int? = nil,
          seconds: Int? = nil) {
         self.order = order
         self.weightValue = weightValue
         self.weightUnitRaw = weightUnit.rawValue
         self.reps = reps
+        self.repsInReserve = repsInReserve
         self.seconds = seconds
     }
 }
@@ -105,6 +110,7 @@ final class MoveEntry {
                      weightValue: Double = 0,
                      weightUnit: WeightUnit = .lb,
                      reps: Int? = nil,
+                     repsInReserve: Int? = nil,
                      seconds: Int? = nil) {
         self.init(moveSlug: moveSlug, label: label)
         if weightValue > 0 || (reps ?? 0) > 0 || (seconds ?? 0) > 0 {
@@ -112,6 +118,7 @@ final class MoveEntry {
                                weightValue: weightValue,
                                weightUnit: weightUnit,
                                reps: reps,
+                               repsInReserve: repsInReserve,
                                seconds: seconds)
             set.moveEntry = self
             self.sets = [set]

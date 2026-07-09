@@ -14,7 +14,8 @@ final class LogExerciseDraftTests: XCTestCase {
                                weightValue: 44,
                                weightUnit: .kg,
                                reps: 8)
-        squat.sets.append(SetEntry(order: 1, weightValue: 40, weightUnit: .lb, reps: 8, seconds: 35))
+        squat.sets.append(SetEntry(order: 1, weightValue: 40, weightUnit: .lb,
+                                   reps: 8, repsInReserve: 2, seconds: 35))
 
         let drafts = LogExerciseDrafts.make(workoutMoves: ["squat", "deadlift"],
                                             existing: [squat, custom],
@@ -28,6 +29,7 @@ final class LogExerciseDraftTests: XCTestCase {
         XCTAssertEqual(drafts.map(\.moveSlug), ["squat", nil, "deadlift"])
         XCTAssertEqual(drafts[0].sets.map(\.weight), [35, 40])
         XCTAssertEqual(drafts[0].sets.map(\.reps), [10, 8])
+        XCTAssertEqual(drafts[0].lastSetRepsInReserve, 2)
         XCTAssertEqual(drafts[0].sets.map(\.seconds), [40, 35])
         XCTAssertEqual(drafts[1].sets.first?.weight ?? 0, 97.0033953592, accuracy: 0.000001)
         XCTAssertEqual(drafts[2].sets.map(\.weight), [nil])
@@ -86,5 +88,33 @@ final class LogExerciseDraftTests: XCTestCase {
         XCTAssertFalse(LogExerciseDraft(moveSlug: nil,
                                         label: "Carry",
                                         sets: [SetDraft(reps: nil, seconds: nil)]).shouldPersist)
+    }
+
+    func testEffortClearsWhenRatedLastWeightedSetIsRemoved() {
+        let first = SetDraft(weight: 30, reps: 10)
+        let rated = SetDraft(weight: 40, reps: 8)
+        var draft = LogExerciseDraft(moveSlug: "squat",
+                                     label: "Squat",
+                                     sets: [first, rated])
+        draft.setLastSetRepsInReserve(2)
+
+        draft.sets.removeLast()
+        draft.reconcileLastSetEffort()
+
+        XCTAssertNil(draft.lastSetRepsInReserve)
+        XCTAssertNil(draft.effortSetID)
+    }
+
+    func testEffortClearsWhenRatedSetBecomesUnweighted() {
+        var draft = LogExerciseDraft(moveSlug: "squat",
+                                     label: "Squat",
+                                     sets: [SetDraft(weight: 40, reps: 8)])
+        draft.setLastSetRepsInReserve(1)
+
+        draft.sets[0].reps = nil
+        draft.reconcileLastSetEffort()
+
+        XCTAssertNil(draft.lastSetRepsInReserve)
+        XCTAssertNil(draft.effortSetID)
     }
 }

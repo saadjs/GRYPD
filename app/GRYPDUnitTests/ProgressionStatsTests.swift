@@ -63,6 +63,41 @@ final class ProgressionStatsTests: XCTestCase {
         XCTAssertEqual(above, 140, accuracy: 0.001, "reps past 12 must not inflate the estimate")
     }
 
+    func testEpleyAddsRepsInReserveToCompletedReps() {
+        XCTAssertEqual(
+            MetricKind.estimatedOneRepMax(weight: 100, reps: 8, repsInReserve: 2),
+            133.3333,
+            accuracy: 0.001
+        )
+    }
+
+    func testEffortAdjustedEpleyClampsCombinedRepsAtTwelve() {
+        XCTAssertEqual(
+            MetricKind.estimatedOneRepMax(weight: 100, reps: 10, repsInReserve: 4),
+            140,
+            accuracy: 0.001
+        )
+    }
+
+    func testWeightedIntensityUsesSavedRepsInReserve() {
+        let set = SetEntry(order: 0, weightValue: 100, weightUnit: .lb,
+                           reps: 8, repsInReserve: 2)
+
+        XCTAssertEqual(MetricKind.weighted.intensity(of: set, displayUnit: .lb),
+                       133.3333, accuracy: 0.001)
+    }
+
+    func testWeightedPeakUsesRatedLastSetInsteadOfUnratedEarlierSets() {
+        let unrated = SetEntry(order: 0, weightValue: 100, weightUnit: .lb, reps: 12)
+        let ratedLast = SetEntry(order: 1, weightValue: 80, weightUnit: .lb,
+                                 reps: 8, repsInReserve: 2)
+
+        XCTAssertIdentical(
+            MetricKind.weighted.peakSet(in: [unrated, ratedLast], displayUnit: .lb),
+            ratedLast
+        )
+    }
+
     // MARK: - Per-move-type classification (from the latest session)
 
     func testMoveClassifiedByLatestSessionTopSet() {
