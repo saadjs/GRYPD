@@ -66,7 +66,7 @@ function Home() {
         <a className="link-card" href="/features.html">
           <span className="link-card__label">Guide</span>
           <h3>Features</h3>
-          <p>Filtering, logging, and progression: how GRYPD fills the gap.</p>
+          <p>Filtering, logging, progression, and weekly goals: how GRYPD fills the gap.</p>
         </a>
         <a className="link-card" href="/data-source.html">
           <span className="link-card__label">Guide</span>
