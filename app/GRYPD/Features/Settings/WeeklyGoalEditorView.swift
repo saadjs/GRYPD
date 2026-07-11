@@ -6,8 +6,6 @@ import SwiftData
 struct WeeklyGoalEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
-    @Environment(CatalogStore.self) private var catalog
-    @Query private var logs: [WorkoutLog]
     @Query(sort: \WeeklyGoalRevision.effectiveFrom, order: .forward)
     private var revisions: [WeeklyGoalRevision]
 
@@ -16,8 +14,6 @@ struct WeeklyGoalEditorView: View {
     @State private var upperTarget: Int
     @State private var lowerTarget: Int
     @State private var totalBodyTarget: Int
-    @State private var pendingDefinition: WeeklyGoalDefinition?
-    @State private var showingGoalChangeConfirmation = false
     @State private var showingDisableConfirmation = false
     @State private var errorMessage: String?
 
@@ -39,18 +35,11 @@ struct WeeklyGoalEditorView: View {
         .navigationTitle("Weekly Goal")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save", action: requestSave)
+                // Save applies immediately and returns to Settings — no mid-save
+                // confirmation, so the behaviour is the same on every edit. The
+                // only confirmation left is the destructive Turn Off below.
+                Button("Save", action: saveGoal)
                     .disabled(!canSave)
-                    // Anchored to the Save button so the warning points at what
-                    // the user just tapped, rather than sliding up from the bottom.
-                    .confirmationPopover(
-                        isPresented: $showingGoalChangeConfirmation,
-                        title: "This changes this week’s completion status",
-                        message: "Your current-week progress will be recalculated using the new goal.",
-                        confirmTitle: "Save Goal"
-                    ) {
-                        if let definition = pendingDefinition { save(definition) }
-                    }
             }
         }
         .alert("Couldn’t save weekly goal", isPresented: errorAlertBinding) {
@@ -107,7 +96,11 @@ struct WeeklyGoalEditorView: View {
                     title: "Turn off weekly goal?",
                     message: "Weekly tracking stops, your active run ends, and your best streak is preserved.",
                     confirmTitle: "Turn Off",
-                    role: .destructive
+                    role: .destructive,
+                    // Anchor below the row (arrow on its bottom edge) so the bubble
+                    // opens into the empty space under the button instead of
+                    // overlapping the goal cards above it.
+                    arrowEdge: .bottom
                 ) {
                     disableGoal()
                 }
@@ -137,26 +130,6 @@ struct WeeklyGoalEditorView: View {
         }
     }
 
-    private func requestSave() {
-        guard let definition = makeDefinition() else { return }
-        let current = WeeklyGoalEngine().report(logs: logs, revisions: revisions, catalog: catalog)
-        guard let proposedRevision = try? WeeklyGoalRevision(definition: definition, effectiveFrom: .now) else {
-            errorMessage = "The selected target is invalid."
-            return
-        }
-        let proposed = WeeklyGoalEngine().report(
-            logs: logs,
-            revisions: revisions + [proposedRevision],
-            catalog: catalog
-        )
-        if current.currentWeek.isComplete != proposed.currentWeek.isComplete {
-            pendingDefinition = definition
-            showingGoalChangeConfirmation = true
-        } else {
-            save(definition)
-        }
-    }
-
     private func makeDefinition() -> WeeklyGoalDefinition? {
         switch mode {
         case .total:
@@ -168,12 +141,15 @@ struct WeeklyGoalEditorView: View {
         }
     }
 
-    private func save(_ definition: WeeklyGoalDefinition) {
+    private func saveGoal() {
+        guard let definition = makeDefinition() else {
+            errorMessage = "The selected target is invalid."
+            return
+        }
         do {
             let revision = try WeeklyGoalRevision(definition: definition, effectiveFrom: .now)
             context.insert(revision)
             try context.save()
-            pendingDefinition = nil
             dismiss()
         } catch {
             errorMessage = error.localizedDescription
@@ -184,7 +160,9 @@ struct WeeklyGoalEditorView: View {
         do {
             context.insert(WeeklyGoalRevision(disabled: .now))
             try context.save()
-            dismiss()
+            // Let the anchored popover finish dismissing before the navigation
+            // pop, otherwise it can flash back in on the Settings screen.
+            DispatchQueue.main.async { dismiss() }
         } catch {
             errorMessage = error.localizedDescription
         }

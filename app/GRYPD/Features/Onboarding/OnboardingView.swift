@@ -1,4 +1,5 @@
 import SwiftUI  // 100% native — no UIKit or third-party dependencies.
+import SwiftData
 
 /// First-run onboarding flow, gated by the `hasCompletedOnboarding` AppStorage
 /// flag that `RootTabView` uses to present it as a `.fullScreenCover`.
@@ -7,6 +8,8 @@ struct OnboardingView: View {
     // inverse in RootTabView, so dismissing here is what ends the flow.
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @Environment(\.modelContext) private var modelContext
+    @Query(sort: \WeeklyGoalRevision.effectiveFrom, order: .reverse)
+    private var weeklyGoalRevisions: [WeeklyGoalRevision]
     @State private var page = 0
     @State private var saveError: String?
 
@@ -48,7 +51,9 @@ struct OnboardingView: View {
                     )
                     .tag(index)
                 }
-                WeeklyGoalOnboardingPage(onSave: saveGoal, onNotNow: finish)
+                WeeklyGoalOnboardingPage(existing: weeklyGoalRevisions.first?.definition,
+                                         onSave: saveGoal,
+                                         onNotNow: finish)
                     .tag(Self.pages.count)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))

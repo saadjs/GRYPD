@@ -6,11 +6,27 @@ struct WeeklyGoalOnboardingPage: View {
     let onSave: (WeeklyGoalDefinition) -> Void
     let onNotNow: () -> Void
 
-    @State private var mode: WeeklyGoalMode = .total
-    @State private var totalTarget = 3
-    @State private var upperTarget = 1
-    @State private var lowerTarget = 1
-    @State private var totalBodyTarget = 1
+    @State private var mode: WeeklyGoalMode
+    @State private var totalTarget: Int
+    @State private var upperTarget: Int
+    @State private var lowerTarget: Int
+    @State private var totalBodyTarget: Int
+
+    /// Seed the controls from the current goal so re-opening this page from
+    /// Settings ("Show Introduction") reflects — and edits — what's already set,
+    /// instead of always resetting to defaults.
+    init(existing: WeeklyGoalDefinition? = nil,
+         onSave: @escaping (WeeklyGoalDefinition) -> Void,
+         onNotNow: @escaping () -> Void) {
+        self.onSave = onSave
+        self.onNotNow = onNotNow
+        _mode = State(initialValue: existing?.mode ?? .total)
+        _totalTarget = State(initialValue: existing?.totalTarget ?? 3)
+        let isGranular = existing?.mode == .granular
+        _upperTarget = State(initialValue: isGranular ? (existing?.upperTarget ?? 1) : 1)
+        _lowerTarget = State(initialValue: isGranular ? (existing?.lowerTarget ?? 1) : 1)
+        _totalBodyTarget = State(initialValue: isGranular ? (existing?.totalBodyTarget ?? 1) : 1)
+    }
 
     var body: some View {
         VStack(spacing: 20) {
@@ -44,6 +60,8 @@ struct WeeklyGoalOnboardingPage: View {
                         Stepper(value: $totalTarget, in: 1...14) {
                             goalValueLabel("Workouts per week", value: totalTarget)
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 11)
                         .cardSurface()
                     } else {
                         VStack(spacing: 0) {
@@ -108,7 +126,10 @@ struct WeeklyGoalOnboardingPage: View {
         Stepper(value: value, in: 0...14) {
             goalValueLabel(title, value: value.wrappedValue)
         }
-        .padding(.vertical, 12)
+        // Match the Settings editor's grouped-list row insets so the +/- steppers
+        // line up the same way (16pt leading/trailing, ~11pt vertical).
+        .padding(.horizontal, 16)
+        .padding(.vertical, 11)
     }
 
     private func goalValueLabel(_ title: String, value: Int) -> some View {
