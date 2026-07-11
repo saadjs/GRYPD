@@ -68,6 +68,18 @@ struct LogDetailView: View {
             } label: {
                 Image(systemName: "ellipsis")
             }
+            // Anchor the confirmation to the ⋯ menu the delete was chosen from,
+            // so the bubble points at it instead of appearing centre-screen.
+            .confirmationPopover(
+                isPresented: $pendingDelete,
+                title: deleteAlertTitle,
+                message: "This permanently removes the logged workout and its weights.",
+                confirmTitle: "Delete",
+                role: .destructive
+            ) {
+                context.delete(log)
+                dismiss()
+            }
         } content: {
             if workout == nil { unavailableBanner }
             metricsSection
@@ -78,15 +90,6 @@ struct LogDetailView: View {
         }
         .sheet(isPresented: $isEditing) {
             LogSessionView(editing: log, workout: workout)
-        }
-        .alert(deleteAlertTitle, isPresented: $pendingDelete) {
-            Button("Delete", role: .destructive) {
-                context.delete(log)
-                dismiss()
-            }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("This permanently removes the logged workout and its weights.")
         }
     }
 

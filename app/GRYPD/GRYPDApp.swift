@@ -19,7 +19,8 @@ struct GRYPDApp: App {
                     await catalog.refresh()
                 }
         }
-        .modelContainer(for: [WorkoutLog.self, MoveEntry.self, SetEntry.self, CustomMove.self])
+        .modelContainer(for: [WorkoutLog.self, MoveEntry.self, SetEntry.self, CustomMove.self,
+                              WeeklyGoalRevision.self])
     }
 }
 

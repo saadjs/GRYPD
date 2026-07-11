@@ -1,8 +1,11 @@
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
     @Environment(CatalogStore.self) private var catalog
     @Environment(\.modelContext) private var context
+    @Query(sort: \WeeklyGoalRevision.effectiveFrom, order: .reverse)
+    private var weeklyGoalRevisions: [WeeklyGoalRevision]
     @AppStorage("defaultUnit") private var defaultUnitRaw = WeightUnit.lb.rawValue
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage(DumbbellDefaults.keyLight) private var dumbbellLight = DumbbellDefaults.defaultLight
@@ -17,6 +20,13 @@ struct SettingsView: View {
                 Section("Units") {
                     Picker("Default weight unit", selection: $defaultUnitRaw) {
                         ForEach(WeightUnit.allCases) { Text($0.label).tag($0.rawValue) }
+                    }
+                }
+                Section {
+                    NavigationLink {
+                        WeeklyGoalEditorView(existing: activeWeeklyGoal)
+                    } label: {
+                        LabeledContent("Weekly Goal", value: weeklyGoalSummary)
                     }
                 }
                 Section {
@@ -96,6 +106,14 @@ struct SettingsView: View {
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
         return "Catalog updated \(formatter.string(from: generatedAt))"
+    }
+
+    private var activeWeeklyGoal: WeeklyGoalDefinition? {
+        weeklyGoalRevisions.first?.definition
+    }
+
+    private var weeklyGoalSummary: String {
+        activeWeeklyGoal?.summary ?? "Off"
     }
 
     private func dumbbellPicker(_ title: String, selection: Binding<Double>) -> some View {

@@ -6,7 +6,9 @@ struct OnboardingView: View {
     // Set to true when the user finishes or skips; the cover is bound to its
     // inverse in RootTabView, so dismissing here is what ends the flow.
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @Environment(\.modelContext) private var modelContext
     @State private var page = 0
+    @State private var saveError: String?
 
     private static let pages: [OnboardingPage] = [
         OnboardingPage(
@@ -33,8 +35,6 @@ struct OnboardingView: View {
         )
     ]
 
-    private var isLastPage: Bool { page == Self.pages.count - 1 }
-
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Color.black.ignoresSafeArea()
@@ -43,32 +43,52 @@ struct OnboardingView: View {
                 ForEach(Array(Self.pages.enumerated()), id: \.offset) { index, model in
                     OnboardingPageView(
                         page: model,
-                        isLast: index == Self.pages.count - 1,
-                        onContinue: advance,
-                        onFinish: finish
+                        showsDocLinks: index == Self.pages.count - 1,
+                        onContinue: advance
                     )
                     .tag(index)
                 }
+                WeeklyGoalOnboardingPage(onSave: saveGoal, onNotNow: finish)
+                    .tag(Self.pages.count)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
 
-            // No Skip on the last page; its Get Started button finishes the flow.
-            if !isLastPage {
-                Button("Skip", action: finish)
-                    .font(.body.weight(.semibold))
-                    .foregroundStyle(.white.opacity(0.6))
-                    .padding(.top, 8)
-                    .padding(.trailing, 20)
-            }
+            Button("Skip", action: skip)
+                .font(.body.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.6))
+                .padding(.top, 8)
+                .padding(.trailing, 20)
         }
         // Force dark regardless of the system setting.
         .preferredColorScheme(.dark)
         .interactiveDismissDisabled()
+        .alert("Unable to save goal", isPresented: Binding(
+            get: { saveError != nil },
+            set: { if !$0 { saveError = nil } }
+        )) {
+            Button("OK", role: .cancel) { saveError = nil }
+        } message: {
+            Text(saveError ?? "Please try again.")
+        }
     }
 
     private func advance() {
-        withAnimation { page = min(page + 1, Self.pages.count - 1) }
+        withAnimation { page = min(page + 1, Self.pages.count) }
+    }
+
+    private func saveGoal(_ definition: WeeklyGoalDefinition) {
+        do {
+            modelContext.insert(try WeeklyGoalRevision(definition: definition, effectiveFrom: .now))
+            try modelContext.save()
+            finish()
+        } catch {
+            saveError = "Your weekly goal could not be saved. Please try again."
+        }
+    }
+
+    private func skip() {
+        finish()
     }
 
     private func finish() {
@@ -89,13 +109,12 @@ private struct OnboardingPage {
 
 // MARK: - Page view
 
-/// Renders one onboarding page: glyph, title, optional gloss, body, and CTA
-/// (plus the doc links on the last page).
+/// Renders one informational onboarding page: glyph, title, optional gloss,
+/// body, and CTA (plus the doc links on the final informational page).
 private struct OnboardingPageView: View {
     let page: OnboardingPage
-    let isLast: Bool
+    let showsDocLinks: Bool
     let onContinue: () -> Void
-    let onFinish: () -> Void
 
     var body: some View {
         VStack(spacing: 24) {
@@ -131,7 +150,7 @@ private struct OnboardingPageView: View {
                         .foregroundStyle(.white.opacity(0.7))
                         .multilineTextAlignment(.center)
 
-                    if isLast {
+                    if showsDocLinks {
                         docLinks
                             .padding(.top, 8)
                     }
@@ -150,8 +169,8 @@ private struct OnboardingPageView: View {
 
     private var actionButton: some View {
         // Brand fill with onBrand (black) text, per the design-system CTA rule.
-        Button(action: isLast ? onFinish : onContinue) {
-            Text(isLast ? "Get Started" : "Continue").primaryActionLabel()
+        Button(action: onContinue) {
+            Text("Continue").primaryActionLabel()
         }
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
