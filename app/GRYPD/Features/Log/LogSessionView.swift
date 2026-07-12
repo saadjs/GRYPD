@@ -272,39 +272,41 @@ struct LogSessionView: View {
                 Text(setCountLabel(entry.wrappedValue.sets.count))
                     .scaledFont(13, weight: .bold, relativeTo: .caption)
                     .foregroundStyle(Color.brand)
-                HStack(spacing: 0) {
-                    Button {
-                        moveExercise(id: entryID, by: -1)
-                    } label: {
-                        Image(systemName: "chevron.up")
-                            .frame(minWidth: 44, minHeight: 44)
-                    }
-                    .disabled(index == nil || index == 0)
-                    .opacity(index == 0 ? 0.3 : 1)
-                    .accessibilityLabel("Move \(name) up")
-
-                    Button {
-                        moveExercise(id: entryID, by: 1)
-                    } label: {
-                        Image(systemName: "chevron.down")
-                            .frame(minWidth: 44, minHeight: 44)
-                    }
-                    .disabled(index == nil || index == count - 1)
-                    .opacity(index == count - 1 ? 0.3 : 1)
-                    .accessibilityLabel("Move \(name) down")
-
-                    Button {
-                        deleteExercise(id: entryID)
-                    } label: {
-                        Image(systemName: "minus.circle.fill")
-                            .frame(minWidth: 44, minHeight: 44)
-                    }
-                    .accessibilityLabel("Remove \(name)")
-                }
-                .buttonStyle(.plain)
-                .scaledFont(13, weight: .semibold, relativeTo: .caption)
-                .foregroundStyle(.white.opacity(0.45))
             }
+
+            HStack(spacing: 0) {
+                Button {
+                    moveExercise(id: entryID, by: -1)
+                } label: {
+                    Image(systemName: "chevron.up")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .disabled(index == nil || index == 0)
+                .opacity(index == 0 ? 0.3 : 1)
+                .accessibilityLabel("Move \(name) up")
+
+                Button {
+                    moveExercise(id: entryID, by: 1)
+                } label: {
+                    Image(systemName: "chevron.down")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .disabled(index == nil || index == count - 1)
+                .opacity(index == count - 1 ? 0.3 : 1)
+                .accessibilityLabel("Move \(name) down")
+
+                Button {
+                    deleteExercise(id: entryID)
+                } label: {
+                    Image(systemName: "minus.circle.fill")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .accessibilityLabel("Remove \(name)")
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .buttonStyle(.plain)
+            .scaledFont(13, weight: .semibold, relativeTo: .caption)
+            .foregroundStyle(.white.opacity(0.45))
 
             ForEach(entry.sets.indices, id: \.self) { index in
                 setRow(entry: entry, index: index, name: name)
