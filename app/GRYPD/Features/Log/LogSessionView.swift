@@ -28,21 +28,10 @@ struct LogSessionView: View {
     @State private var showingMovePicker = false
     @State private var activeSetPicker: SetPickerTarget?
     @State private var showingMissingEffort = false
-    /// Measured height of one exercise row, plus one added set. The embedded
-    /// List scrolls natively for deletion but is height-pinned inside the sheet.
-    @State private var measuredBaseRowHeight: CGFloat = 0
-    @State private var measuredTwoSetRowHeight: CGFloat = 0
 
     @ScaledMetric(relativeTo: .body) private var rowMinHeight: CGFloat = 54
-    /// Fallback per-row height used only until `measuredRowHeight` is known. Scaled
-    /// so an un-measured first frame is still roughly right at any Dynamic Type size.
-    @ScaledMetric(relativeTo: .body) private var exerciseRowHeight: CGFloat = 72
-    @ScaledMetric(relativeTo: .body) private var effortControlHeight: CGFloat = 78
     @ScaledMetric(relativeTo: .body) private var valueButtonMinHeight: CGFloat = 40
     @ScaledMetric(relativeTo: .body) private var wheelSheetHeight: CGFloat = 230
-
-    /// `listRowInsets` top + bottom applied to each exercise row (see the List).
-    private let exerciseRowInset: CGFloat = 10
 
     private var defaultUnit: WeightUnit { WeightUnit(rawValue: defaultUnitRaw) ?? .lb }
     private var dumbbellDefaults: DumbbellDefaults {
@@ -246,21 +235,12 @@ struct LogSessionView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                List {
+                VStack(spacing: 10) {
                     ForEach($entries) { $entry in
-                        weightRow($entry)
-                            .listRowBackground(Color.clear)
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
+                        let index = entries.firstIndex { $0.id == entry.id }
+                        weightRow($entry, index: index, count: entries.count)
                     }
-                    .onDelete(perform: deleteExercises)
-                    .onMove(perform: moveExercises)
                 }
-                .listStyle(.plain)
-                .scrollContentBackground(.hidden)
-                .scrollDisabled(true)
-                .frame(height: exerciseListHeight)
-                .background(alignment: .top) { rowHeightProbes }
             }
 
             Button {
@@ -279,42 +259,12 @@ struct LogSessionView: View {
         .cardSurface()
     }
 
-    /// Exact height for the embedded exercise List, accounting for variable set
-    /// counts per move. Falls back to a scaled estimate until probes report.
-    private var exerciseListHeight: CGFloat {
-        let base = measuredBaseRowHeight > 0 ? measuredBaseRowHeight : exerciseRowHeight
-        let extra = measuredTwoSetRowHeight > measuredBaseRowHeight
-            ? measuredTwoSetRowHeight - measuredBaseRowHeight
-            : exerciseRowHeight * 0.55
-        return entries.reduce(CGFloat(0)) { total, entry in
-            let hasEffortControl = entry.sets.contains(where: isWeightedRepSet)
-            return total + base
-                + max(0, CGFloat(entry.sets.count - 1)) * extra
-                + (hasEffortControl ? effortControlHeight : 0)
-                + exerciseRowInset
-        }
-    }
-
-    private var rowHeightProbes: some View {
-        VStack {
-            weightRow(.constant(LogExerciseDraft(moveSlug: nil,
-                                                 label: "Probe",
-                                                 sets: [SetDraft()])))
-                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { measuredBaseRowHeight = $0 }
-            weightRow(.constant(LogExerciseDraft(moveSlug: nil,
-                                                 label: "Probe",
-                                                 sets: [SetDraft(),
-                                                        SetDraft()])))
-                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { measuredTwoSetRowHeight = $0 }
-        }
-        .fixedSize(horizontal: false, vertical: true)
-        .hidden()
-        .allowsHitTesting(false)
-    }
-
-    /// One move row. Swipe left deletes the whole move; the nested remove button
-    /// deletes one set without fighting List's native gesture.
-    private func weightRow(_ entry: Binding<LogExerciseDraft>) -> some View {
+    /// One move row. A plain (non-List) row so the card grows to fit all
+    /// exercises and sets instead of clipping when the content is tall.
+    /// Reordering and whole-exercise deletion use explicit buttons since this
+    /// isn't a List and so can't offer swipe-to-delete or drag-to-reorder.
+    private func weightRow(_ entry: Binding<LogExerciseDraft>, index: Int?, count: Int) -> some View {
+        let entryID = entry.wrappedValue.id
         let name = entry.wrappedValue.trimmedLabel.isEmpty ? "Exercise" : entry.wrappedValue.trimmedLabel
         return VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .firstTextBaseline, spacing: 10) {
@@ -322,13 +272,41 @@ struct LogSessionView: View {
                 Text(setCountLabel(entry.wrappedValue.sets.count))
                     .scaledFont(13, weight: .bold, relativeTo: .caption)
                     .foregroundStyle(Color.brand)
-                // Decorative hint that the row is a drag source; the whole row
-                // reorders via the List's native long-press drag.
-                Image(systemName: "line.3.horizontal")
-                    .scaledFont(13, weight: .semibold, relativeTo: .caption)
-                    .foregroundStyle(.white.opacity(0.3))
-                    .accessibilityHidden(true)
             }
+
+            HStack(spacing: 0) {
+                Button {
+                    moveExercise(id: entryID, by: -1)
+                } label: {
+                    Image(systemName: "chevron.up")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .disabled(index == nil || index == 0)
+                .opacity(index == 0 ? 0.3 : 1)
+                .accessibilityLabel("Move \(name) up")
+
+                Button {
+                    moveExercise(id: entryID, by: 1)
+                } label: {
+                    Image(systemName: "chevron.down")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .disabled(index == nil || index == count - 1)
+                .opacity(index == count - 1 ? 0.3 : 1)
+                .accessibilityLabel("Move \(name) down")
+
+                Button {
+                    deleteExercise(id: entryID)
+                } label: {
+                    Image(systemName: "minus.circle.fill")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .accessibilityLabel("Remove \(name)")
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .buttonStyle(.plain)
+            .scaledFont(13, weight: .semibold, relativeTo: .caption)
+            .foregroundStyle(.white.opacity(0.45))
 
             ForEach(entry.sets.indices, id: \.self) { index in
                 setRow(entry: entry, index: index, name: name)
@@ -647,14 +625,18 @@ struct LogSessionView: View {
                                                         seconds: nil)]))
     }
 
-    private func deleteExercises(at offsets: IndexSet) {
-        entries.remove(atOffsets: offsets)
+    private func deleteExercise(id: LogExerciseDraft.ID) {
+        guard let index = entries.firstIndex(where: { $0.id == id }) else { return }
+        entries.remove(at: index)
     }
 
-    /// Reorder via the List's native long-press drag. `entries` is the save
-    /// source of truth, so its new order is persisted as each move's `order`.
-    private func moveExercises(from offsets: IndexSet, to destination: Int) {
-        entries.move(fromOffsets: offsets, toOffset: destination)
+    /// Reorder via the row's up/down buttons. `entries` is the save source of
+    /// truth, so its new order is persisted as each move's `order`.
+    private func moveExercise(id: LogExerciseDraft.ID, by delta: Int) {
+        guard let index = entries.firstIndex(where: { $0.id == id }) else { return }
+        let destination = index + delta
+        guard entries.indices.contains(destination) else { return }
+        entries.swapAt(index, destination)
     }
 
     private func addSet(to entry: Binding<LogExerciseDraft>) {
