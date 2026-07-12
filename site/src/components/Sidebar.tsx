@@ -24,11 +24,17 @@ const GROUPS: NavGroup[] = [
   },
 ];
 
+function normalizePath(path: string) {
+  const trimmed = path.endsWith('/index.html')
+    ? path.slice(0, -'index.html'.length)
+    : path.replace(/\.html$/, '');
+  const withoutTrailingSlash = trimmed.length > 1 ? trimmed.replace(/\/$/, '') : trimmed;
+  return withoutTrailingSlash || '/';
+}
+
 function isActive(href: string) {
   if (typeof window === 'undefined') return false;
-  const path = window.location.pathname;
-  if (href === '/') return path === '/' || path.endsWith('/index.html');
-  return path.endsWith(href);
+  return normalizePath(window.location.pathname) === normalizePath(href);
 }
 
 export function Sidebar({ open }: { open?: boolean }) {
