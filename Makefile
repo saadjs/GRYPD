@@ -39,7 +39,7 @@ SIM_DEST     := platform=iOS Simulator,name=$(DEVICE)
 
 .DEFAULT_GOAL := help
 
-.PHONY: help catalog site deploy-docs py-check py-lint py-format generate build run test clean open archive beta export upload organizer
+.PHONY: help catalog site deploy-docs py-check py-lint py-format generate build run test clean open archive beta export upload organizer expire-build
 
 help:
 	@echo "GRYPD iOS development commands"
@@ -60,6 +60,7 @@ help:
 	@echo "  make export    - Export an .ipa from the existing archive"
 	@echo "  make upload    - Upload the existing .ipa to TestFlight"
 	@echo "  make organizer - Open the archive in Xcode Organizer for manual upload"
+	@echo "  make expire-build - List active TestFlight builds and expire any of them"
 	@echo ""
 	@echo "Override the simulator with: make run DEVICE='iPhone 15 Pro'"
 	@echo "Upload example: make beta API_KEY_ID=... API_ISSUER_ID=... API_KEY_PATH=.../AuthKey_xxx.p8"
@@ -217,6 +218,11 @@ upload:
 
 # Full TestFlight release pipeline: archive, export, upload.
 beta: archive export upload
+
+# List active (non-expired) TestFlight builds and interactively expire any of
+# them. Uses the App Store Connect API directly (curl, no fastlane needed).
+expire-build:
+	@scripts/expire-testflight-build.sh
 
 # Open the archive in Xcode Organizer for manual upload.
 organizer: archive
