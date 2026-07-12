@@ -14,6 +14,7 @@ const TOC = [
   { id: 'log', label: 'Log the weight you lift' },
   { id: 'dumbbells', label: 'Smart dumbbell defaults' },
   { id: 'progress', label: 'Progression, per move' },
+  { id: 'goals', label: 'Weekly goals & streaks' },
   { id: 'local', label: 'Local-only, always' },
 ];
 
@@ -120,6 +121,43 @@ function Features() {
               caption="Progression: charted per move"
             />
           </div>
+        </div>
+      </section>
+
+      <section className="doc-section" id="goals">
+        <div className="feature-row">
+          <div>
+            <h2 className="section-title">Weekly goals & streaks</h2>
+            <div className="section-body">
+              <p>
+                Opt in to a Monday–Sunday target: one total session count, or split
+                across <strong>upper</strong>, <strong>lower</strong>, and{' '}
+                <strong>total body</strong>. History fills a ring for each as you log,
+                and tracks a <strong>current</strong> and <strong>best streak</strong>{' '}
+                of weeks you hit it.
+              </p>
+            </div>
+            <div className="pill-row">
+              <span className="pill">Total or by body focus</span>
+              <span className="pill">Current + best streak</span>
+              <span className="pill">Effective-dated</span>
+            </div>
+          </div>
+          <div className="feature-row__visual">
+            <DeviceFrame
+              src="/screenshots/weekly-goals.png"
+              alt="History screen showing this week's progress rings for upper body, lower body, and total body goals, plus current and best streak tiles"
+              caption="Rings fill as you log; streaks tick up when the week's goal is met"
+            />
+          </div>
+        </div>
+        <div className="callout">
+          <h3>No retroactive streaks</h3>
+          <p>
+            Editing a target only changes the current week; a finished week keeps
+            the definition it was actually completed under, so lowering a target
+            later can't manufacture a streak.
+          </p>
         </div>
       </section>
 

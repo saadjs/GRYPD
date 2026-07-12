@@ -690,6 +690,11 @@ struct LogSessionView: View {
         log.performedAt = performedAt
         log.activeEnergyKcal = activeCalories > 0 ? Double(activeCalories) : nil
         log.note = note.isEmpty ? nil : note
+        if let workout {
+            // Preserve the catalog classification on the log so future catalog
+            // refreshes cannot move an existing session between goal buckets.
+            log.bodyFocus = WorkoutBodyFocus(rawValue: workout.facets.bodyFocus)
+        }
 
         // Rebuild move entries from the drafts: delete-and-recreate is simple and
         // correct whether we're creating fresh or editing an existing session.

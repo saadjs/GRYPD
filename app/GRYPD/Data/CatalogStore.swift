@@ -29,6 +29,10 @@ final class CatalogStore {
 
     func workout(id: String) -> Workout? { index[id] }
 
+    func bodyFocus(for workoutId: String) -> WorkoutBodyFocus? {
+        workout(id: workoutId).flatMap { WorkoutBodyFocus(rawValue: $0.facets.bodyFocus) }
+    }
+
     func canonicalWorkoutId(for id: String) -> String? {
         workout(id: id)?.id
     }

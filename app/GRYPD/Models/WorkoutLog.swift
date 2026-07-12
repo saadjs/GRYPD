@@ -26,17 +26,34 @@ final class WorkoutLog {
     var id: UUID = UUID()
     var workoutId: String = ""
     var performedAt: Date = Date.now
+    /// Captured when a log is created so later catalog changes cannot change its
+    /// granular goal category. Nil is retained for logs created before goals.
+    var bodyFocusRaw: String?
     var note: String?
     /// Optional active-calorie estimate, hand-entered by the user at log time.
     var activeEnergyKcal: Double?
     @Relationship(deleteRule: .cascade, inverse: \MoveEntry.log)
     var moveEntries: [MoveEntry] = []
 
-    init(workoutId: String, performedAt: Date = .now, note: String? = nil) {
+    init(workoutId: String,
+         performedAt: Date = .now,
+         note: String? = nil,
+         bodyFocus: WorkoutBodyFocus? = nil) {
         self.id = UUID()
         self.workoutId = workoutId
         self.performedAt = performedAt
         self.note = note
+        self.bodyFocusRaw = bodyFocus?.rawValue
+    }
+
+    convenience init(workout: Workout, performedAt: Date = .now, note: String? = nil) {
+        self.init(workoutId: workout.id, performedAt: performedAt, note: note,
+                  bodyFocus: WorkoutBodyFocus(rawValue: workout.facets.bodyFocus))
+    }
+
+    var bodyFocus: WorkoutBodyFocus? {
+        get { bodyFocusRaw.flatMap(WorkoutBodyFocus.init(rawValue:)) }
+        set { bodyFocusRaw = newValue?.rawValue }
     }
 
     /// A session is *matched* once it's tied to a catalog workout.
