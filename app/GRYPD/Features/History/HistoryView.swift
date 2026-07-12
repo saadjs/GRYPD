@@ -19,11 +19,13 @@ struct HistoryView: View {
             Group {
                 if logs.isEmpty {
                     if weeklyGoalReport.currentWeek.isGraded {
-                        VStack(spacing: AppSpacing.section) {
-                            WeeklyGoalSummary(report: weeklyGoalReport)
-                            emptyState
+                        ScrollView {
+                            VStack(spacing: AppSpacing.section) {
+                                WeeklyGoalSummary(report: weeklyGoalReport)
+                                emptyState
+                            }
+                            .padding(.horizontal, 16)
                         }
-                        .padding(.horizontal, 16)
                     } else {
                         emptyState
                     }
@@ -445,7 +447,7 @@ private struct GoalCategoryTile: View {
     private var ring: some View {
         GoalRing(progress: progress, size: 56) {
             Image(systemName: category.symbol)
-                .font(.system(size: 20, weight: .semibold))
+                .scaledFont(20, weight: .semibold, relativeTo: .headline)
                 .foregroundStyle(complete ? Color.brand : .white.opacity(0.85))
         }
     }
