@@ -25,6 +25,23 @@ struct SetDraft: Identifiable, Equatable {
     var isEmpty: Bool {
         (weight ?? 0) <= 0 && (reps ?? 0) <= 0 && (seconds ?? 0) <= 0
     }
+
+    var persistedWeight: Double {
+        max(weight ?? 0, 0)
+    }
+
+    var persistedReps: Int? {
+        positive(reps)
+    }
+
+    var persistedSeconds: Int? {
+        positive(seconds)
+    }
+
+    private func positive(_ value: Int?) -> Int? {
+        guard let value, value > 0 else { return nil }
+        return value
+    }
 }
 
 /// Editable row state for the logging sheet. Kept outside the view so the

@@ -645,13 +645,13 @@ struct LogSessionView: View {
             let lastWeightedSetID = e.sets.last(where: isWeightedRepSet)?.id
             for (index, setDraft) in e.sets.enumerated() where !setDraft.isEmpty {
                 let set = SetEntry(order: index,
-                                   weightValue: setDraft.weight ?? 0,
+                                   weightValue: setDraft.persistedWeight,
                                    weightUnit: defaultUnit,
-                                   reps: setDraft.reps,
+                                   reps: setDraft.persistedReps,
                                    repsInReserve: setDraft.id == lastWeightedSetID
                                     ? e.lastSetRepsInReserve
                                     : nil,
-                                   seconds: setDraft.seconds)
+                                   seconds: setDraft.persistedSeconds)
                 set.moveEntry = m
                 m.sets.append(set)
                 context.insert(set)

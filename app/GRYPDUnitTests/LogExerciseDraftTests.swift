@@ -126,6 +126,22 @@ final class LogExerciseDraftTests: XCTestCase {
                                         sets: [SetDraft(reps: nil, seconds: nil)]).shouldPersist)
     }
 
+    func testSetPersistenceNormalizesNonPositiveValues() {
+        let draft = SetDraft(weight: -25, reps: 0, seconds: -30)
+
+        XCTAssertEqual(draft.persistedWeight, 0)
+        XCTAssertNil(draft.persistedReps)
+        XCTAssertNil(draft.persistedSeconds)
+    }
+
+    func testSetPersistencePreservesPositiveValues() {
+        let draft = SetDraft(weight: 25, reps: 8, seconds: 30)
+
+        XCTAssertEqual(draft.persistedWeight, 25)
+        XCTAssertEqual(draft.persistedReps, 8)
+        XCTAssertEqual(draft.persistedSeconds, 30)
+    }
+
     func testEffortClearsWhenRatedLastWeightedSetIsRemoved() {
         let first = SetDraft(weight: 30, reps: 10)
         let rated = SetDraft(weight: 40, reps: 8)
