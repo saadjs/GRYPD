@@ -15,23 +15,26 @@ struct LogSessionView: View {
     @Environment(CatalogStore.self) private var catalog
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @AppStorage("defaultUnit") private var defaultUnitRaw = WeightUnit.lb.rawValue
     @AppStorage(DumbbellDefaults.keyLight) private var dumbbellLight = DumbbellDefaults.defaultLight
     @AppStorage(DumbbellDefaults.keyMedium) private var dumbbellMedium = DumbbellDefaults.defaultMedium
     @AppStorage(DumbbellDefaults.keyHeavy) private var dumbbellHeavy = DumbbellDefaults.defaultHeavy
 
     @State private var performedAt = Date.now
-    @State private var activeCalories: Int = 0
+    @State private var activeCalories: Int?
     @State private var note = ""
     @State private var entries: [LogExerciseDraft] = []
+    @State private var initialEntries: [LogExerciseDraft] = []
+    @State private var initialPerformedAt = Date.now
     @State private var didSeed = false
     @State private var showingMovePicker = false
-    @State private var activeSetPicker: SetPickerTarget?
-    @State private var showingMissingEffort = false
+    @State private var showingDiscardConfirmation = false
+    @State private var pendingExerciseDeletion: LogExerciseDraft.ID?
+    @FocusState private var isNumericFieldFocused: Bool
 
     @ScaledMetric(relativeTo: .body) private var rowMinHeight: CGFloat = 54
-    @ScaledMetric(relativeTo: .body) private var valueButtonMinHeight: CGFloat = 40
-    @ScaledMetric(relativeTo: .body) private var wheelSheetHeight: CGFloat = 230
+    @ScaledMetric(relativeTo: .body) private var fieldMinHeight: CGFloat = 44
 
     private var defaultUnit: WeightUnit { WeightUnit(rawValue: defaultUnitRaw) ?? .lb }
     private var dumbbellDefaults: DumbbellDefaults {
@@ -81,17 +84,16 @@ struct LogSessionView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button { dismiss() } label: {
-                        Image(systemName: "xmark")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(.white)
-                    }
+                    Button("Cancel", action: cancel)
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    Button { save() } label: {
-                        Image(systemName: "checkmark")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(Color.brand)
+                    Button("Save", action: save)
+                        .foregroundStyle(Color.brand)
+                }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        isNumericFieldFocused = false
                     }
                 }
             }
@@ -99,6 +101,7 @@ struct LogSessionView: View {
         .preferredColorScheme(.dark)
         .sheetPresentation()
         .presentationBackground(.black)
+        .interactiveDismissDisabled(hasEnteredData)
         .onAppear(perform: seed)
         .sheet(isPresented: $showingMovePicker) {
             MovePickerView(taxonomy: catalog.taxonomy,
@@ -107,14 +110,24 @@ struct LogSessionView: View {
             }
             .sheetPresentation()
         }
-        .sheet(item: $activeSetPicker) { target in
-            setPickerSheet(target)
-                .sheetPresentation()
-        }
-        .alert("Add Set Effort", isPresented: $showingMissingEffort) {
-            Button("OK", role: .cancel) {}
+        .confirmationDialog("Discard this workout log?",
+                            isPresented: $showingDiscardConfirmation,
+                            titleVisibility: .visible) {
+            Button("Discard Changes", role: .destructive) { dismiss() }
+            Button("Keep Editing", role: .cancel) {}
         } message: {
-            Text("For each weighted exercise, rate your last set by choosing how many more good reps you could have done.")
+            Text("Your entered sets and session details will be lost.")
+        }
+        .confirmationDialog("Remove this exercise?",
+                            isPresented: Binding(
+                                get: { pendingExerciseDeletion != nil },
+                                set: { if !$0 { pendingExerciseDeletion = nil } }
+                            ),
+                            titleVisibility: .visible) {
+            Button("Remove Exercise", role: .destructive) { confirmExerciseDeletion() }
+            Button("Cancel", role: .cancel) { pendingExerciseDeletion = nil }
+        } message: {
+            Text("All entered sets for this exercise will be removed.")
         }
     }
 
@@ -157,14 +170,21 @@ struct LogSessionView: View {
             Divider()
                 .background(Color.white.opacity(0.08))
 
-            HStack(spacing: 14) {
-                Text("Start")
-                    .primaryLabelFont()
-                    .foregroundStyle(.white)
-                Spacer(minLength: 12)
-                HStack(spacing: 8) {
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Start").primaryLabelFont().foregroundStyle(.white)
                     datePickerControl(.date)
                     datePickerControl(.hourAndMinute)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                HStack(spacing: 14) {
+                    Text("Start").primaryLabelFont().foregroundStyle(.white)
+                    Spacer(minLength: 12)
+                    HStack(spacing: 8) {
+                        datePickerControl(.date)
+                        datePickerControl(.hourAndMinute)
+                    }
                 }
             }
         }
@@ -181,33 +201,48 @@ struct LogSessionView: View {
 
     private var activeCaloriesCard: some View {
         VStack(spacing: 16) {
-            HStack(spacing: 14) {
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 10) {
+                    activeCaloriesLabel
+                    activeCaloriesField
+                }
+            } else {
+                HStack(spacing: 14) {
+                    activeCaloriesLabel
+                    Spacer(minLength: 12)
+                    activeCaloriesField
+                }
+            }
+
+            Text("Optional. Enter the active calories from your workout if you tracked them.")
+                .scaledFont(14, weight: .medium, relativeTo: .subheadline)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(16)
+        .cardSurface()
+    }
+
+    private var activeCaloriesLabel: some View {
+        HStack(spacing: 14) {
                 Image(systemName: "flame.fill")
                     .font(.body.weight(.semibold))
                     .foregroundStyle(Color.brand)
                 Text("Active Calories")
                     .primaryLabelFont(weight: .semibold)
                     .foregroundStyle(.white)
-                Spacer(minLength: 12)
-                Picker("", selection: $activeCalories) {
-                    ForEach(Array(stride(from: 0, through: 2000, by: 5)), id: \.self) { value in
-                        Text("\(value) cal").tag(value)
-                    }
-                }
-                .pickerStyle(.menu)
-                .tint(.white)
-                .scaledFont(15, weight: .semibold, relativeTo: .subheadline)
-                .accessibilityLabel("Active Calories")
-            }
-
-            Text("Optional. Enter the active calories from your workout if you tracked them.")
-                .scaledFont(14, weight: .medium, relativeTo: .subheadline)
-                .foregroundStyle(.white.opacity(0.45))
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(16)
-        .cardSurface()
+    }
+
+    private var activeCaloriesField: some View {
+        TextField("Optional", value: $activeCalories, format: .number)
+            .multilineTextAlignment(dynamicTypeSize.isAccessibilitySize ? .leading : .trailing)
+            .keyboardType(.numberPad)
+            .focused($isNumericFieldFocused)
+            .scaledFont(15, weight: .semibold, relativeTo: .subheadline)
+            .accessibilityLabel("Active Calories")
+            .accessibilityHint("Optional. Enter active calories burned.")
     }
 
     private var weightsCard: some View {
@@ -235,7 +270,7 @@ struct LogSessionView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                VStack(spacing: 10) {
+                VStack(spacing: 8) {
                     ForEach($entries) { $entry in
                         let index = entries.firstIndex { $0.id == entry.id }
                         weightRow($entry, index: index, count: entries.count)
@@ -261,65 +296,62 @@ struct LogSessionView: View {
 
     /// One move row. A plain (non-List) row so the card grows to fit all
     /// exercises and sets instead of clipping when the content is tall.
-    /// Reordering and whole-exercise deletion use explicit buttons since this
-    /// isn't a List and so can't offer swipe-to-delete or drag-to-reorder.
+    /// Reordering and deletion live in the native header menu. They are useful
+    /// but infrequent commands, so they shouldn't consume a dedicated row in
+    /// every exercise card.
     private func weightRow(_ entry: Binding<LogExerciseDraft>, index: Int?, count: Int) -> some View {
         let entryID = entry.wrappedValue.id
         let name = entry.wrappedValue.trimmedLabel.isEmpty ? "Exercise" : entry.wrappedValue.trimmedLabel
-        return VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .firstTextBaseline, spacing: 10) {
+        return VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .center, spacing: 8) {
                 exerciseName(name).frame(maxWidth: .infinity, alignment: .leading)
                 Text(setCountLabel(entry.wrappedValue.sets.count))
                     .scaledFont(13, weight: .bold, relativeTo: .caption)
                     .foregroundStyle(Color.brand)
+                Menu {
+                    Button {
+                        moveExercise(id: entryID, by: -1)
+                    } label: {
+                        Label("Move Up", systemImage: "arrow.up")
+                    }
+                    .disabled(index == nil || index == 0)
+
+                    Button {
+                        moveExercise(id: entryID, by: 1)
+                    } label: {
+                        Label("Move Down", systemImage: "arrow.down")
+                    }
+                    .disabled(index == nil || index == count - 1)
+
+                    Divider()
+
+                    Button(role: .destructive) {
+                        requestExerciseDeletion(id: entryID)
+                    } label: {
+                        Label("Remove Exercise", systemImage: "trash")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .frame(minWidth: 44, minHeight: 44)
+                }
+                .accessibilityLabel("Actions for \(name)")
+                .tint(.secondary)
             }
-
-            HStack(spacing: 0) {
-                Button {
-                    moveExercise(id: entryID, by: -1)
-                } label: {
-                    Image(systemName: "chevron.up")
-                        .frame(minWidth: 44, minHeight: 44)
-                }
-                .disabled(index == nil || index == 0)
-                .opacity(index == 0 ? 0.3 : 1)
-                .accessibilityLabel("Move \(name) up")
-
-                Button {
-                    moveExercise(id: entryID, by: 1)
-                } label: {
-                    Image(systemName: "chevron.down")
-                        .frame(minWidth: 44, minHeight: 44)
-                }
-                .disabled(index == nil || index == count - 1)
-                .opacity(index == count - 1 ? 0.3 : 1)
-                .accessibilityLabel("Move \(name) down")
-
-                Button {
-                    deleteExercise(id: entryID)
-                } label: {
-                    Image(systemName: "minus.circle.fill")
-                        .frame(minWidth: 44, minHeight: 44)
-                }
-                .accessibilityLabel("Remove \(name)")
-            }
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            .buttonStyle(.plain)
-            .scaledFont(13, weight: .semibold, relativeTo: .caption)
-            .foregroundStyle(.white.opacity(0.45))
 
             ForEach(entry.sets.indices, id: \.self) { index in
                 setRow(entry: entry, index: index, name: name)
             }
 
             if entry.wrappedValue.sets.contains(where: isWeightedRepSet) {
-                valueButton(title: "Last set effort",
-                            value: effortLabel(entry.wrappedValue.lastSetRepsInReserve),
-                            systemImage: "gauge.with.dots.needle.67percent") {
-                    activeSetPicker = SetPickerTarget(entryID: entry.wrappedValue.id,
-                                                      setID: entry.wrappedValue.id,
-                                                      kind: .effort)
+                Picker("Last set effort (optional)",
+                       selection: effortBinding(for: entry)) {
+                    Text("Not recorded").tag(Optional<Int>.none)
+                    ForEach(0...4, id: \.self) { value in
+                        Text(effortOptionLabel(value)).tag(Optional(value))
+                    }
                 }
+                .pickerStyle(.menu)
+                .tint(.brand)
                 Text("Rate your last set · How many more good reps could you do?")
                     .scaledFont(12, weight: .medium, relativeTo: .caption)
                     .foregroundStyle(.white.opacity(0.45))
@@ -336,8 +368,8 @@ struct LogSessionView: View {
             .tint(.brand)
             .scaledFont(14, weight: .semibold, relativeTo: .subheadline)
         }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 11)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
         .cardSurface(radius: AppRadius.card, fillOpacity: 0.05, strokeOpacity: 0.09)
     }
@@ -353,7 +385,7 @@ struct LogSessionView: View {
     @ViewBuilder
     private func setRow(entry: Binding<LogExerciseDraft>, index: Int, name: String) -> some View {
         let set = entry.sets[index]
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 10) {
                 Text("Set \(index + 1)")
                     .scaledFont(13, weight: .bold, relativeTo: .caption)
@@ -371,191 +403,91 @@ struct LogSessionView: View {
                 .opacity(entry.wrappedValue.sets.count <= 1 ? 0.35 : 1)
             }
 
-            HStack(spacing: 6) {
-                valueButton(title: "Weight",
-                            value: weightLabel(set.wrappedValue.weight),
-                            systemImage: "dumbbell") {
-                    activeSetPicker = SetPickerTarget(entryID: entry.wrappedValue.id,
-                                                      setID: set.wrappedValue.id,
-                                                      kind: .weight)
-                }
-                valueButton(title: "Reps",
-                            value: repsLabel(set.wrappedValue.reps),
-                            systemImage: "number") {
-                    activeSetPicker = SetPickerTarget(entryID: entry.wrappedValue.id,
-                                                      setID: set.wrappedValue.id,
-                                                      kind: .reps)
-                }
-                valueButton(title: "Timer",
-                            value: timerLabel(set.wrappedValue.seconds),
-                            systemImage: "timer") {
-                    activeSetPicker = SetPickerTarget(entryID: entry.wrappedValue.id,
-                                                      setID: set.wrappedValue.id,
-                                                      kind: .timer)
-                }
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 8) { setFields(set: set, exercise: name, number: index + 1) }
+                VStack(spacing: 8) { setFields(set: set, exercise: name, number: index + 1) }
             }
-            .frame(maxWidth: .infinity)
 
         }
-        .padding(.vertical, 4)
-    }
-
-    private func valueButton(title: String,
-                             value: String,
-                             systemImage: String,
-                             action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            VStack(spacing: 2) {
-                Image(systemName: systemImage)
-                    .scaledFont(11, weight: .semibold, relativeTo: .caption)
-                Text(value)
-                    .scaledFont(14, weight: .bold, relativeTo: .subheadline)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
-            }
-            .frame(maxWidth: .infinity, minHeight: valueButtonMinHeight)
-            .padding(.horizontal, 2)
-        }
-        .buttonStyle(.bordered)
-        .buttonBorderShape(.roundedRectangle(radius: 8))
-        .tint(.white.opacity(0.22))
-        .foregroundStyle(.white)
-        .accessibilityLabel(title)
-        .accessibilityValue(value)
-    }
-
-    private func setPickerSheet(_ target: SetPickerTarget) -> some View {
-        NavigationStack {
-            Group {
-                if target.kind == .effort,
-                   let effort = effortBinding(entryID: target.entryID) {
-                    VStack(spacing: 18) {
-                        Text(target.kind.title)
-                            .sectionHeaderFont()
-                            .foregroundStyle(.white)
-                        effortPicker(selection: effort)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black.ignoresSafeArea())
-                } else if let set = setBinding(entryID: target.entryID, setID: target.setID) {
-                    VStack(spacing: 18) {
-                        Text(target.kind.title)
-                            .sectionHeaderFont()
-                            .foregroundStyle(.white)
-                        pickerContent(for: target.kind, set: set)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black.ignoresSafeArea())
-                } else {
-                    ContentUnavailableView("Set unavailable", systemImage: "exclamationmark.triangle")
-                        .background(Color.black.ignoresSafeArea())
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { activeSetPicker = nil }
-                        .foregroundStyle(Color.brand)
-                }
-            }
-        }
-        .preferredColorScheme(.dark)
-        .presentationBackground(.black)
+        .padding(.vertical, 1)
     }
 
     @ViewBuilder
-    private func pickerContent(for kind: SetPickerKind, set: Binding<SetDraft>) -> some View {
-        switch kind {
-        case .weight:
-            Picker("Weight", selection: set.weight) {
-                Text("—").tag(Optional<Double>.none)
-                ForEach(weightValues, id: \.self) { value in
-                    Text(weightLabel(value)).tag(Optional(value))
-                }
+    private func setFields(set: Binding<SetDraft>, exercise: String, number: Int) -> some View {
+        weightField(value: set.weight,
+                    suggestion: suggestedWeight(for: exercise),
+                    accessibilityLabel: "\(exercise), set \(number), weight")
+        integerField("Reps", suffix: nil, value: set.reps,
+                     accessibilityLabel: "\(exercise), set \(number), reps")
+        integerField("Duration", suffix: "sec", value: set.seconds,
+                     accessibilityLabel: "\(exercise), set \(number), duration in seconds")
+    }
+
+    private func weightField(
+        value: Binding<Double?>,
+        suggestion: String?,
+        accessibilityLabel: String
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            fieldLabel("Weight")
+            HStack(spacing: 4) {
+                TextField(suggestion ?? "—", value: value, format: .number)
+                    .keyboardType(.decimalPad)
+                    .focused($isNumericFieldFocused)
+                    .multilineTextAlignment(.trailing)
+                    .accessibilityLabel(accessibilityLabel)
+                    .accessibilityHint(suggestion.map { "Suggested value \($0)" } ?? "Optional")
+                Text(defaultUnit.label).foregroundStyle(.secondary)
             }
-            .pickerStyle(.wheel)
-            .frame(height: wheelSheetHeight)
-            .clipped()
-        case .reps:
-            Picker("Reps", selection: set.reps) {
-                Text("—").tag(Optional<Int>.none)
-                ForEach(1...40, id: \.self) { value in
-                    Text("\(value)").tag(Optional(value))
-                }
-            }
-            .pickerStyle(.wheel)
-            .frame(height: wheelSheetHeight)
-            .clipped()
-        case .timer:
-            Picker("Timer", selection: set.seconds) {
-                Text("—").tag(Optional<Int>.none)
-                ForEach(Array(stride(from: 20, through: 120, by: 5)), id: \.self) { seconds in
-                    Text(timerLabel(seconds)).tag(Optional(seconds))
-                }
-            }
-            .pickerStyle(.wheel)
-            .frame(height: wheelSheetHeight)
-            .clipped()
-        case .effort:
-            EmptyView()
+            .scaledFont(16, weight: .semibold, relativeTo: .body)
+            .frame(maxWidth: .infinity, minHeight: fieldMinHeight)
+            .padding(.horizontal, 10)
+            .cardSurface(radius: AppRadius.card)
         }
     }
 
-    private func effortPicker(selection: Binding<Int?>) -> some View {
-        Picker("Reps in reserve", selection: selection) {
-            Text("Choose effort").tag(Optional<Int>.none)
-            ForEach(0...4, id: \.self) { value in
-                Text(effortOptionLabel(value)).tag(Optional(value))
+    private func integerField(
+        _ title: String,
+        suffix: String?,
+        value: Binding<Int?>,
+        suggestion: String? = nil,
+        accessibilityLabel: String
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            fieldLabel(title)
+            HStack(spacing: 4) {
+                TextField(suggestion ?? "—", value: value, format: .number)
+                    .keyboardType(.numberPad)
+                    .focused($isNumericFieldFocused)
+                    .multilineTextAlignment(.trailing)
+                    .accessibilityLabel(accessibilityLabel)
+                    .accessibilityHint(suggestion.map { "Suggested value \($0)" } ?? "Optional")
+                if let suffix { Text(suffix).foregroundStyle(.secondary) }
             }
+            .scaledFont(16, weight: .semibold, relativeTo: .body)
+            .frame(maxWidth: .infinity, minHeight: fieldMinHeight)
+            .padding(.horizontal, 10)
+            .cardSurface(radius: AppRadius.card)
         }
-        .pickerStyle(.wheel)
-        .frame(height: wheelSheetHeight)
-        .clipped()
     }
 
-    private func effortBinding(entryID: UUID) -> Binding<Int?>? {
-        guard let entryIndex = entries.firstIndex(where: { $0.id == entryID }) else { return nil }
+    private func fieldLabel(_ title: String) -> some View {
+        Text(title)
+            .scaledFont(12, weight: .semibold, relativeTo: .caption)
+            .foregroundStyle(.secondary)
+    }
+
+    private func effortBinding(for entry: Binding<LogExerciseDraft>) -> Binding<Int?> {
         return Binding(
-            get: { entries[entryIndex].lastSetRepsInReserve },
-            set: { entries[entryIndex].setLastSetRepsInReserve($0) }
+            get: { entry.wrappedValue.lastSetRepsInReserve },
+            set: { entry.wrappedValue.setLastSetRepsInReserve($0) }
         )
     }
 
-    private func setBinding(entryID: UUID, setID: UUID) -> Binding<SetDraft>? {
-        guard let entryIndex = entries.firstIndex(where: { $0.id == entryID }),
-              let setIndex = entries[entryIndex].sets.firstIndex(where: { $0.id == setID }) else {
-            return nil
-        }
-        return Binding(
-            get: { entries[entryIndex].sets[setIndex] },
-            set: {
-                entries[entryIndex].sets[setIndex] = $0
-                entries[entryIndex].reconcileLastSetEffort()
-            }
-        )
-    }
-
-    private var weightValues: [Double] {
-        DumbbellDefaults.options(for: defaultUnit)
-    }
-
-    private func weightLabel(_ value: Double?) -> String {
-        guard let value, value > 0 else { return "—" }
-        return "\(formatted(value)) \(defaultUnit.label)"
-    }
-
-    private func repsLabel(_ value: Int?) -> String {
-        guard let value, value > 0 else { return "—" }
-        return "\(value)"
-    }
-
-    private func timerLabel(_ value: Int?) -> String {
-        guard let value, value > 0 else { return "—" }
-        return timerLabel(value)
-    }
-
-    private func effortLabel(_ value: Int?) -> String {
-        guard let value else { return "Choose effort" }
-        return effortOptionLabel(value)
+    private func suggestedWeight(for exercise: String) -> String? {
+        guard let slug = entries.first(where: { $0.trimmedLabel == exercise })?.moveSlug,
+              let weight = dumbbellDefaults.weight(forMoveSlug: slug) else { return nil }
+        return formatted(weight)
     }
 
     private func effortOptionLabel(_ value: Int) -> String {
@@ -566,10 +498,6 @@ struct LogSessionView: View {
         case 3: return "3 more reps"
         default: return "4+ more reps"
         }
-    }
-
-    private func timerLabel(_ seconds: Int) -> String {
-        seconds < 60 ? "\(seconds)s" : "\(seconds / 60):\(String(format: "%02d", seconds % 60))"
     }
 
     private var noteCard: some View {
@@ -600,10 +528,12 @@ struct LogSessionView: View {
         didSeed = true
         if let log = editingLog {
             performedAt = log.performedAt
-            activeCalories = log.activeEnergyKcal.map { Int($0.rounded()) } ?? 0
+            activeCalories = log.activeEnergyKcal.map { Int($0.rounded()) }
             note = log.note ?? ""
         }
         entries = draftEntries()
+        initialEntries = entries
+        initialPerformedAt = performedAt
     }
 
     private func draftEntries() -> [LogExerciseDraft] {
@@ -628,6 +558,21 @@ struct LogSessionView: View {
     private func deleteExercise(id: LogExerciseDraft.ID) {
         guard let index = entries.firstIndex(where: { $0.id == id }) else { return }
         entries.remove(at: index)
+    }
+
+    private func requestExerciseDeletion(id: LogExerciseDraft.ID) {
+        guard let entry = entries.first(where: { $0.id == id }) else { return }
+        if entry.shouldPersist {
+            pendingExerciseDeletion = id
+        } else {
+            deleteExercise(id: id)
+        }
+    }
+
+    private func confirmExerciseDeletion() {
+        guard let id = pendingExerciseDeletion else { return }
+        pendingExerciseDeletion = nil
+        deleteExercise(id: id)
     }
 
     /// Reorder via the row's up/down buttons. `entries` is the save source of
@@ -659,18 +604,13 @@ struct LogSessionView: View {
     }
 
     private func save() {
-        guard !hasWeightedSetMissingEffort else {
-            showingMissingEffort = true
-            return
-        }
-
         let log = editingLog ?? WorkoutLog(workoutId: workout?.id ?? "",
                                            performedAt: performedAt,
                                            note: note.isEmpty ? nil : note)
         if editingLog == nil { context.insert(log) }
 
         log.performedAt = performedAt
-        log.activeEnergyKcal = activeCalories > 0 ? Double(activeCalories) : nil
+        log.activeEnergyKcal = (activeCalories ?? 0) > 0 ? Double(activeCalories!) : nil
         log.note = note.isEmpty ? nil : note
         if let workout {
             // Preserve the catalog classification on the log so future catalog
@@ -706,40 +646,26 @@ struct LogSessionView: View {
         dismiss()
     }
 
-    private var hasWeightedSetMissingEffort: Bool {
-        entries.contains { entry in
-            entry.sets.contains(where: isWeightedRepSet)
-                && entry.lastSetRepsInReserve == nil
+    private func cancel() {
+        if hasEnteredData {
+            showingDiscardConfirmation = true
+        } else {
+            dismiss()
         }
+    }
+
+    private var hasEnteredData: Bool {
+        if isEditing {
+            return performedAt != initialPerformedAt
+                || activeCalories != editingLog?.activeEnergyKcal.map { Int($0.rounded()) }
+                || note != (editingLog?.note ?? "")
+                || entries != initialEntries
+        }
+        return performedAt != initialPerformedAt || activeCalories != nil
+            || !note.isEmpty || entries != initialEntries
     }
 
     private func isWeightedRepSet(_ set: SetDraft) -> Bool {
         (set.weight ?? 0) > 0 && (set.reps ?? 0) > 0
-    }
-}
-
-private struct SetPickerTarget: Identifiable, Equatable {
-    let entryID: UUID
-    let setID: UUID
-    let kind: SetPickerKind
-
-    var id: String {
-        "\(entryID.uuidString)-\(setID.uuidString)-\(kind.rawValue)"
-    }
-}
-
-private enum SetPickerKind: String, Equatable {
-    case weight
-    case reps
-    case timer
-    case effort
-
-    var title: String {
-        switch self {
-        case .weight: return "Weight"
-        case .reps: return "Reps"
-        case .timer: return "Timer"
-        case .effort: return "How Did This Set Feel?"
-        }
     }
 }

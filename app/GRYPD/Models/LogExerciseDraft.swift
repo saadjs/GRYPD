@@ -112,12 +112,13 @@ enum LogExerciseDrafts {
                                             .repsInReserve))
         }
 
-        // Append catalog moves the user hasn't logged yet, in catalog order.
+        // Append catalog moves the user hasn't logged yet, in catalog order. The
+        // configured dumbbell value is a suggestion in the UI, not completed
+        // workout data, so it must never be written into a fresh draft silently.
         for slug in workoutMoves where !loggedSlugs.contains(slug) {
             drafts.append(LogExerciseDraft(moveSlug: slug,
                                            label: moveLabel(slug),
-                                           sets: [SetDraft(weight: dumbbellDefaults?.weight(forMoveSlug: slug),
-                                                           reps: nil, seconds: nil)]))
+                                           sets: [.empty]))
         }
         return drafts
     }
