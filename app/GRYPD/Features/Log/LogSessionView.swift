@@ -384,7 +384,7 @@ struct LogSessionView: View {
 
     @ViewBuilder
     private func setRow(entry: Binding<LogExerciseDraft>, index: Int, name: String) -> some View {
-        let set = entry.sets[index]
+        let set = reconciledSetBinding(entry: entry, index: index)
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 10) {
                 Text("Set \(index + 1)")
@@ -410,6 +410,22 @@ struct LogSessionView: View {
 
         }
         .padding(.vertical, 1)
+    }
+
+    /// Keep the effort rating tied to the weighted set the user rated. Direct
+    /// field bindings would otherwise let weight/reps edits change the last
+    /// weighted set without clearing a now-stale rating.
+    private func reconciledSetBinding(
+        entry: Binding<LogExerciseDraft>,
+        index: Int
+    ) -> Binding<SetDraft> {
+        Binding(
+            get: { entry.wrappedValue.sets[index] },
+            set: {
+                entry.wrappedValue.sets[index] = $0
+                entry.wrappedValue.reconcileLastSetEffort()
+            }
+        )
     }
 
     @ViewBuilder
