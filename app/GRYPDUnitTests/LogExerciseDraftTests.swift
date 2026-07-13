@@ -84,7 +84,7 @@ final class LogExerciseDraftTests: XCTestCase {
         XCTAssertEqual(drafts.map(\.moveSlug), ["c", "a", "b"])
     }
 
-    func testFreshMovesAutoFillFromDumbbellDefaultsButLoggedWeightsWin() {
+    func testFreshMovesKeepDefaultsAsSuggestionsButLoggedWeightsWin() {
         // squat already logged at 40 — must be preserved, not overwritten.
         let squat = MoveEntry(moveSlug: "squat", label: "Squat", weightValue: 40, weightUnit: .lb)
         let defaults = DumbbellDefaults(light: 10, medium: 15, heavy: 25, unit: .lb)
@@ -95,12 +95,13 @@ final class LogExerciseDraftTests: XCTestCase {
             defaultUnit: .lb,
             dumbbellDefaults: defaults) { slug in slug.capitalized }
 
-        // squat keeps its logged 40; lateral-raise auto-fills light (10);
-        // plank is bodyweight so stays empty.
+        // Saved values remain real data. Defaults are only UI suggestions, so
+        // untouched catalog exercises stay empty and cannot be persisted silently.
         XCTAssertEqual(drafts.map(\.moveSlug), ["squat", "lateral-raise", "plank"])
-        XCTAssertEqual(drafts.map { $0.sets.first?.weight }, [40, 10, nil])
+        XCTAssertEqual(drafts.map { $0.sets.first?.weight }, [40, nil, nil])
         XCTAssertNil(drafts[1].sets.first?.reps)
         XCTAssertNil(drafts[1].sets.first?.seconds)
+        XCTAssertFalse(drafts[1].shouldPersist)
         XCTAssertFalse(drafts[2].shouldPersist)
     }
 

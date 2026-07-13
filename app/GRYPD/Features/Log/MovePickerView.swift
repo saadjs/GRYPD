@@ -182,7 +182,7 @@ struct MovePickerView: View {
             if move.isLogged {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.title3)
-                    .foregroundStyle(.white.opacity(0.45))
+                    .foregroundStyle(Color.brand)
                     .accessibilityHidden(true)
             } else {
                 Image(systemName: "plus.circle.fill")
