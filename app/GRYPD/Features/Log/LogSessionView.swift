@@ -566,9 +566,7 @@ struct LogSessionView: View {
     private func addMove(slug: String, label: String) {
         guard !entries.contains(where: { $0.moveSlug == slug }) else { return }
         entries.append(LogExerciseDraft(moveSlug: slug, label: label,
-                                        sets: [SetDraft(weight: dumbbellDefaults.weight(forMoveSlug: slug),
-                                                        reps: nil,
-                                                        seconds: nil)]))
+                                        sets: [.empty]))
     }
 
     private func deleteExercise(id: LogExerciseDraft.ID) {
