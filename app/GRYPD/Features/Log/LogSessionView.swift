@@ -338,7 +338,7 @@ struct LogSessionView: View {
                 .tint(.secondary)
             }
 
-            ForEach(entry.sets.indices, id: \.self) { index in
+            ForEach(entry.wrappedValue.sets.indices, id: \.self) { index in
                 setRow(entry: entry, index: index, name: name)
             }
 
@@ -421,10 +421,7 @@ struct LogSessionView: View {
     ) -> Binding<SetDraft> {
         Binding(
             get: { entry.wrappedValue.sets[index] },
-            set: {
-                entry.wrappedValue.sets[index] = $0
-                entry.wrappedValue.reconcileLastSetEffort()
-            }
+            set: { entry.wrappedValue.updateSet(at: index, to: $0) }
         )
     }
 
@@ -599,18 +596,11 @@ struct LogSessionView: View {
     }
 
     private func addSet(to entry: Binding<LogExerciseDraft>) {
-        let seed = entry.wrappedValue.sets.last
-        entry.wrappedValue.sets.append(SetDraft(weight: seed?.weight,
-                                                reps: seed?.reps,
-                                                seconds: seed?.seconds))
-        entry.wrappedValue.setLastSetRepsInReserve(nil)
+        entry.wrappedValue.appendSetCopyingLast()
     }
 
     private func removeSet(from entry: Binding<LogExerciseDraft>, at index: Int) {
-        guard entry.wrappedValue.sets.indices.contains(index),
-              entry.wrappedValue.sets.count > 1 else { return }
-        entry.wrappedValue.sets.remove(at: index)
-        entry.wrappedValue.reconcileLastSetEffort()
+        entry.wrappedValue.removeSet(at: index)
     }
 
     private func setCountLabel(_ count: Int) -> String {

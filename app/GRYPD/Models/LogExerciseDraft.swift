@@ -50,8 +50,8 @@ struct LogExerciseDraft: Identifiable, Equatable {
     let id: UUID
     var moveSlug: String?
     var label: String
-    var sets: [SetDraft]
-    var lastSetRepsInReserve: Int?
+    private(set) var sets: [SetDraft]
+    private(set) var lastSetRepsInReserve: Int?
     private(set) var effortSetID: UUID?
 
     init(id: UUID = UUID(),
@@ -63,10 +63,11 @@ struct LogExerciseDraft: Identifiable, Equatable {
         self.moveSlug = moveSlug
         self.label = label
         self.sets = sets
-        self.lastSetRepsInReserve = lastSetRepsInReserve
-        self.effortSetID = lastSetRepsInReserve == nil
+        let effortSetID = lastSetRepsInReserve == nil
             ? nil
             : sets.last { ($0.weight ?? 0) > 0 && ($0.reps ?? 0) > 0 }?.id
+        self.lastSetRepsInReserve = effortSetID == nil ? nil : lastSetRepsInReserve
+        self.effortSetID = effortSetID
     }
 
     var trimmedLabel: String {
@@ -82,10 +83,30 @@ struct LogExerciseDraft: Identifiable, Equatable {
         effortSetID = value == nil ? nil : lastWeightedSetID
     }
 
+    mutating func updateSet(at index: Int, to set: SetDraft) {
+        guard sets.indices.contains(index) else { return }
+        sets[index] = set
+        reconcileLastSetEffort()
+    }
+
+    mutating func appendSetCopyingLast() {
+        let seed = sets.last
+        sets.append(SetDraft(weight: seed?.weight,
+                             reps: seed?.reps,
+                             seconds: seed?.seconds))
+        reconcileLastSetEffort()
+    }
+
+    mutating func removeSet(at index: Int) {
+        guard sets.indices.contains(index), sets.count > 1 else { return }
+        sets.remove(at: index)
+        reconcileLastSetEffort()
+    }
+
     /// A rating belongs to a specific last weighted set. Editing or deleting sets
     /// can change that identity, in which case retaining the rating would silently
     /// apply it to a set the user never rated.
-    mutating func reconcileLastSetEffort() {
+    private mutating func reconcileLastSetEffort() {
         guard effortSetID == lastWeightedSetID else {
             lastSetRepsInReserve = nil
             effortSetID = nil
