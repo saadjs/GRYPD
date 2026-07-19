@@ -1,5 +1,117 @@
 [
  {
+  "id": "seatable-Jj3T5xkyS8GVdUqzuvao3w",
+  "discipline": "strength",
+  "title": "Strength with Kyle",
+  "trainer": "kyle",
+  "durationMinutes": 30,
+  "episode": 210,
+  "description": "6 moves • 4 rounds",
+  "releaseDate": "2026-07-13",
+  "facets": {
+   "bodyFocus": "total-body",
+   "muscleGroups": [
+    "chest",
+    "biceps",
+    "back",
+    "shoulders",
+    "thighs",
+    "glutes",
+    "core"
+   ],
+   "equipment": [
+    "mat",
+    "dumbbells"
+   ],
+   "dumbbells": [
+    "2-medium",
+    "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "medium",
+    "heavy"
+   ]
+  },
+  "moves": [
+   "squat",
+   "overhead-press",
+   "hinge",
+   "row",
+   "bridge",
+   "chest-press",
+   "high-pull",
+   "lunge",
+   "lateral-lunge",
+   "curl",
+   "halo"
+  ]
+ },
+ {
+  "id": "seatable-EUqDwky_StqJ7If9WrHFAg",
+  "discipline": "strength",
+  "title": "Strength with Kyle",
+  "trainer": "kyle",
+  "durationMinutes": 10,
+  "episode": 209,
+  "description": "2 moves • 2 rounds",
+  "releaseDate": "2026-07-13",
+  "facets": {
+   "bodyFocus": "upper-body",
+   "muscleGroups": [
+    "chest",
+    "back"
+   ],
+   "equipment": [
+    "dumbbells",
+    "mat"
+   ],
+   "dumbbells": [
+    "1-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
+   ]
+  },
+  "moves": [
+   "chest-press",
+   "row"
+  ]
+ },
+ {
+  "id": "seatable-GVZwBCZdR-qHpAHaS7p0sg",
+  "discipline": "strength",
+  "title": "Strength with Kim",
+  "trainer": "kim",
+  "durationMinutes": 20,
+  "episode": 120,
+  "description": "4 moves • 3 rounds (Slow, Pulse at Bottom, Power)",
+  "releaseDate": "2026-07-13",
+  "facets": {
+   "bodyFocus": "lower-body",
+   "muscleGroups": [
+    "thighs",
+    "glutes",
+    "calves"
+   ],
+   "equipment": [
+    "dumbbells"
+   ],
+   "dumbbells": [
+    "2-heavy"
+   ],
+   "dumbbellLoad": [
+    "heavy"
+   ]
+  },
+  "moves": [
+   "squat",
+   "hinge",
+   "lunge",
+   "knee-drive",
+   "calf-raise"
+  ]
+ },
+ {
   "id": "6778546909",
   "discipline": "strength",
   "title": "Strength with Kim",

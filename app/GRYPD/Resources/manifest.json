@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "generatedAt": "2026-07-08T01:55:16Z",
- "catalogVersion": "2026.27",
+ "generatedAt": "2026-07-19T20:11:32Z",
+ "catalogVersion": "2026.28",
  "taxonomy": {
   "file": "taxonomy.afd853b7ed.json",
   "sha256_10": "afd853b7ed",
@@ -11,10 +11,10 @@
   {
    "slug": "strength",
    "label": "Strength",
-   "file": "strength.650250f52e.json",
-   "sha256_10": "650250f52e",
-   "count": 889,
-   "bytes": 609223
+   "file": "strength.36f0052744.json",
+   "sha256_10": "36f0052744",
+   "count": 892,
+   "bytes": 610613
   }
  ]
 }
